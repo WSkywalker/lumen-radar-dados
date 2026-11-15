@@ -16,7 +16,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const ARQUIVO = new URL("../concursos.json", import.meta.url);
 const UA = "LumenPlanRadar/1.0 (+https://github.com/WSkywalker/lumen-radar-dados)";
 const MUNICIPIOS_URL = "https://study-zen-planner-53.lovable.app/municipios.json";
-const DIAS = 4; // janela de publicação (o coletor roda 2x/dia; sobra margem)
+const DIAS = 2; // janela de publicação (o coletor roda 2x/dia; sobra margem)
 const MAX_PAGINAS = 80;
 const PAUSA_MS = 800;
 const VALIDADE_DIAS = 240; // depois disso, sem edital, o "banca contratada" sai da lista

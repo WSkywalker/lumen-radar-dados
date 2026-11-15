@@ -1,0 +1,5 @@
+{
+ "testado_em": "2026-11-15T22:02:32.879Z",
+ "url": "https://api.queridodiario.ok.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
+ "erro": "ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE"
+}

@@ -4,7 +4,12 @@ import { writeFile } from "node:fs/promises";
 
 const Q = "gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1";
 // endereço da documentação em texto e endereço que aparece no exemplo (imagem) do tutorial
-const ENDERECOS = ["https://api.queridodiario.ok.org.br/", "https://queridodiario.ok.org.br/api/"];
+const ENDERECOS = [
+  "https://api.queridodiario.org.br/", // domínio novo (sem ".ok")
+  "https://queridodiario.org.br/api/",
+  "https://api.queridodiario.ok.org.br/",
+  "https://queridodiario.ok.org.br/api/",
+];
 const resultados = [];
 for (const base of ENDERECOS) {
 const URL_TESTE = base + Q;

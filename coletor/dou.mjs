@@ -16,6 +16,8 @@ const BUSCAS = [
   '"abertura de inscrições"',
   '"torna pública a abertura"',
   '"realização de concurso público"', // contratos de banca = concurso previsto
+  '"autorizar a realização de concurso público"', // portarias de autorização
+  '"autoriza a realização de concurso público"',
 ];
 const PERIODOS = ["dia", "semana"];
 const MUNICIPIOS_URL = "https://study-zen-planner-53.lovable.app/municipios.json";
@@ -240,6 +242,15 @@ function local(item) {
   return { uf: sigla, cidade: m ? m[0] : nome || null, latitude: m ? m[2] : null, longitude: m ? m[3] : null };
 }
 
+/** Em portarias de autorização (publicadas pelo MGI), o órgão beneficiado vem no texto. */
+function orgaoAutorizado(texto) {
+  const t = String(texto).replace(/\s+/g, " ").slice(0, 3000);
+  const m =
+    t.match(/concurso p[úu]blico[^.]{0,160}?(?:no [âa]mbito d[oa]|para o quadro de pessoal d[oa]|do quadro de pessoal d[oa]) ([A-ZÁÂÃÉÊÍÓÔÕÚÇ][^,.;:()]{3,90})/) ??
+    t.match(/concurso p[úu]blico (?:para|do|da) ([A-ZÁÂÃÉÊÍÓÔÕÚÇ][^,.;:()]{3,90})/);
+  return m ? m[1].trim() : null;
+}
+
 /** Órgão: o nível da hierarquia mais útil (ex.: "Receita Federal", "Universidade Federal do Ceará"). */
 function orgao(item) {
   const lista = (item.hierarchyList ?? String(item.hierarchyStr ?? "").split("/")).filter(Boolean);
@@ -255,13 +266,20 @@ const DESCARTA = /(resultado|homologa|prorroga|retifica|convoca|nomea|licitac|pr
 /* execução                                                            */
 /* ------------------------------------------------------------------ */
 
-function situacao(ini, fim) {
+/**
+ * Situações usadas pelo app:
+ * previsto · autorizado · banca_contratada · edital_publicado ("Aberto") ·
+ * aberto (inscrições abertas) · andamento (inscrições encerradas) · suspenso · encerrado
+ */
+function situacao(ini, fim, prova) {
   const h = hojeISO();
-  if (ini && h < ini) return "previsto";
+  if (prova && prova < h) return "encerrado";
+  if (ini && h < ini) return "edital_publicado";
   if (fim && h > fim) return "andamento";
   if (ini || fim) return "aberto";
-  return "aberto";
+  return "edital_publicado";
 }
+const FIXAS = new Set(["previsto", "autorizado", "banca_contratada", "suspenso"]);
 
 async function main() {
   let base = { itens: [] };
@@ -271,6 +289,7 @@ async function main() {
     /* primeira execução */
   }
   const porId = new Map(base.itens.map((i) => [i.id, i]));
+  // itens de outras fontes (ex.: PNCP) passam direto; só os do DOU são revisados aqui
 
   // 1) busca
   const candidatos = new Map();
@@ -283,8 +302,10 @@ async function main() {
         if (!/concurso publico/.test(resumo)) continue;
         const contrato = /extrato de contrato|extrato de dispensa|extrato de inexigibilidade/.test(tipo) && /(realizacao|organizacao|execucao) de concurso publico/.test(resumo);
         const edital = /edital/.test(tipo) && !/resultado|homolog|retifica|convoca/.test(tipo) && !DESCARTA.test(resumo);
+        const autorizacao = /portaria/.test(tipo) && /autoriza(r)? a realizacao de concurso publico/.test(resumo);
         if (contrato) it._contrato = true;
-        if (contrato || edital) candidatos.set(String(it.classPK), it);
+        if (autorizacao) it._autorizacao = true;
+        if (contrato || edital || autorizacao) candidatos.set(String(it.classPK), it);
       }
       await sleep(PAUSA_MS);
     }
@@ -306,10 +327,15 @@ async function main() {
     if (!texto) continue;
     const inicio = norm(texto.slice(0, 4000));
     const contrato = !!it._contrato;
-    if (!contrato && (!ABERTURA.test(inicio) || DESCARTA.test(norm(texto.slice(0, 600))))) continue;
+    const autorizacao = !!it._autorizacao;
+    const suspensao = false; // suspensões ficam para o cadastro manual (evita duplicar concursos)
+    if (!contrato && !autorizacao && !suspensao && (!ABERTURA.test(inicio) || DESCARTA.test(norm(texto.slice(0, 600))))) continue;
+    if (autorizacao && !/autoriza(r)? a realizacao de concurso publico/.test(inicio)) continue;
+    if (suspensao && !/suspen/.test(inicio)) continue;
+    const especial = contrato || autorizacao || suspensao;
 
-    const [ini, fim] = contrato ? [null, null] : periodoInscricoes(texto);
-    const prova = contrato ? null : dataProva(texto);
+    const [ini, fim] = especial ? [null, null] : periodoInscricoes(texto);
+    const prova = especial ? null : dataProva(texto);
     const contexto = `${it.hierarchyStr} ${texto.slice(0, 3000)}`;
     const [d, m, y] = String(it.pubDate).split("/");
     const lugar = local(it);
@@ -317,7 +343,7 @@ async function main() {
       id,
       fonte_chave: id,
       origem: "robo",
-      orgao: orgao(it),
+      orgao: autorizacao ? orgaoAutorizado(texto) ?? orgao(it) : orgao(it),
       cargo: contrato ? "Concurso em preparação (banca contratada)" : cargo(texto),
       area: area(contexto),
       abrangencia: lugar?.cidade ? "municipal" : "federal",
@@ -325,7 +351,7 @@ async function main() {
       cidade: lugar?.cidade ?? null,
       latitude: lugar?.latitude ?? null,
       longitude: lugar?.longitude ?? null,
-      situacao: contrato ? "previsto" : situacao(ini, fim),
+      situacao: contrato ? "banca_contratada" : autorizacao ? "autorizado" : suspensao ? "suspenso" : situacao(ini, fim, prova),
       vagas: vagas(texto.slice(0, 20000)),
       banca: banca(texto),
       inscricoes_inicio: ini,
@@ -347,19 +373,14 @@ async function main() {
   const itens = [...porId.values()]
     .map((i) => ({
       ...i,
-      situacao:
-        i.prova_data && i.prova_data < h
-          ? "encerrado"
-          : /banca contratada/.test(i.cargo)
-            ? "previsto"
-            : situacao(i.inscricoes_inicio, i.inscricoes_fim),
+      situacao: !i.id.startsWith("dou:") || FIXAS.has(i.situacao) ? i.situacao : situacao(i.inscricoes_inicio, i.inscricoes_fim, i.prova_data),
     }))
-    .filter((i) => !(i.prova_data && i.prova_data < limite))
-    .filter((i) => !(!i.prova_data && i.publicado_em && i.publicado_em < new Date(Date.now() - 240 * 86_400_000).toISOString().slice(0, 10)))
+    .filter((i) => !i.id.startsWith("dou:") || !(i.prova_data && i.prova_data < limite))
+    .filter((i) => !i.id.startsWith("dou:") || !(!i.prova_data && i.publicado_em && i.publicado_em < new Date(Date.now() - 240 * 86_400_000).toISOString().slice(0, 10)))
     .sort((a, b) => String(b.publicado_em).localeCompare(String(a.publicado_em)));
 
   const saida = {
-    fonte: "Diário Oficial da União — Imprensa Nacional (in.gov.br), Seção 3",
+    fonte: "Fontes oficiais: Diário Oficial da União (in.gov.br, Seção 3) e PNCP (pncp.gov.br)",
     aviso: "Resumo automático de publicações oficiais. Confira sempre o edital no link.",
     gerado_em: new Date().toISOString(),
     total: itens.length,

@@ -137,7 +137,13 @@ function banca(razao) {
   ];
   const k = conhecidas.find(([, re]) => re.test(r));
   if (k) return k[0];
-  return String(razao ?? "").replace(/\s+/g, " ").trim().slice(0, 80) || null;
+  const t = String(razao ?? "").replace(/\s+/g, " ").trim().slice(0, 80);
+  if (!t) return null;
+  return t
+    .toLowerCase()
+    .replace(/(^|[\s(/-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase())
+    .replace(/\b(De|Do|Da|Dos|Das|E|Em)\b/g, (w) => w.toLowerCase())
+    .replace(/\b(Ltda|Me|Epp|Eireli|S\/a)\b/g, (w) => w.toUpperCase());
 }
 
 /* ------------------------------------------------------------------ */
@@ -226,6 +232,7 @@ async function main() {
     i.cargo = cargos(obj);
     i.orgao = nomeOrgao(i.orgao, i.cidade);
     i.area = area(`${i.orgao} ${i.cargo}`);
+    i.banca = banca(i.banca);
   }
 
   const limite = new Date(Date.now() - VALIDADE_DIAS * 86_400_000).toISOString().slice(0, 10);

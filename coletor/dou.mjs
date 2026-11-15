@@ -279,7 +279,7 @@ function situacao(ini, fim, prova) {
   if (ini || fim) return "aberto";
   return "edital_publicado";
 }
-const FIXAS = new Set(["previsto", "autorizado", "banca_contratada", "suspenso"]);
+const FIXAS = new Set(["autorizado", "banca_contratada", "suspenso"]);
 
 async function main() {
   let base = { itens: [] };

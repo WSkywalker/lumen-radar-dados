@@ -1,7 +1,7 @@
 {
  "fonte": "Fontes oficiais: Diário Oficial da União (in.gov.br, Seção 3) e PNCP (pncp.gov.br)",
  "aviso": "Resumo automático de publicações oficiais. Confira sempre o edital no link.",
- "gerado_em": "2026-11-15T22:50:15.276Z",
+ "gerado_em": "2026-11-15T23:02:37.204Z",
  "total": 10,
  "itens": [
   {
@@ -33,7 +33,7 @@
    "id": "pncp:03633160000166-2-000002/2026",
    "fonte_chave": "pncp:03633160000166-2-000002/2026",
    "origem": "robo",
-   "orgao": "Camara Municipal De Paraiso Do Tocantins-To",
+   "orgao": "Câmara Municipal de Paraíso do Tocantins",
    "cargo": "Cargos a definir (banca contratada)",
    "area": "administrativa",
    "abrangencia": "municipal",
@@ -52,14 +52,15 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-13. Objeto: CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS TECNICOS ESPECIALIZADOS DE PLANEJAMENTO, ORGANIZAÇÃO E REALIZAÇÃO DE CONCURSO PUBLICO PARA PROVIMENTO DE 14 (QUATORZE) VAGAS E FORMAÇÃO DE CADASTRO DE RESERVA.",
    "publicado_em": "2026-11-13",
    "verificado_em": "2026-11-15T22:44:23.242Z",
-   "visto_em": "2026-11-15T22:44:23.242Z"
+   "visto_em": "2026-11-15T22:58:03.989Z",
+   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS TECNICOS ESPECIALIZADOS DE PLANEJAMENTO, ORGANIZAÇÃO E REALIZAÇÃO DE CONCURSO PUBLICO PARA PROVIMENTO DE 14 (QUATORZE) VAGAS E FORMAÇÃO DE CADASTRO DE RESERVA."
   },
   {
    "id": "pncp:03576220000156-2-000116/2026",
    "fonte_chave": "pncp:03576220000156-2-000116/2026",
    "origem": "robo",
-   "orgao": "Municipio De Bataguassu",
-   "cargo": "E à formação de cadastro de reserva",
+   "orgao": "Prefeitura de Bataguassu",
+   "cargo": "Cargos a definir (banca contratada)",
    "area": "administrativa",
    "abrangencia": "municipal",
    "uf": "MS",
@@ -77,13 +78,14 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-13. Objeto: Contratação Instituição de Ensino para prestação de serviços especializados de planejamento, organização, operacionalização e execução integral de concurso público destinado ao provimento de cargos efetivos e à formação de cadastro de reserva do quadro de pessoal do Município de Bataguassu/MS, compr",
    "publicado_em": "2026-11-13",
    "verificado_em": "2026-11-15T22:46:28.661Z",
-   "visto_em": "2026-11-15T22:46:28.661Z"
+   "visto_em": "2026-11-15T22:59:04.730Z",
+   "objeto": "Contratação Instituição de Ensino para prestação de serviços especializados de planejamento, organização, operacionalização e execução integral de concurso público destinado ao provimento de cargos efetivos e à formação de cadastro de reserva do quadro de pessoal do Município de Bataguassu/MS, compr"
   },
   {
    "id": "pncp:17947581000176-2-000189/2026",
    "fonte_chave": "pncp:17947581000176-2-000189/2026",
    "origem": "robo",
-   "orgao": "Municipio De Muriae",
+   "orgao": "Prefeitura de Muriaé",
    "cargo": "Cargos a definir (banca contratada)",
    "area": "administrativa",
    "abrangencia": "municipal",
@@ -102,15 +104,16 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-13. Objeto: Contratação de serviços de organização, planejamento e realização de Concurso Público destinado ao preenchimento de vagas e formação de cadastro de reserva de cargos de provimento efetivo, de nível médio e superior, do quadro de pessoal da Prefeitura Municipal de Muriaé - MG",
    "publicado_em": "2026-11-13",
    "verificado_em": "2026-11-15T22:47:18.361Z",
-   "visto_em": "2026-11-15T22:47:18.361Z"
+   "visto_em": "2026-11-15T22:59:45.390Z",
+   "objeto": "Contratação de serviços de organização, planejamento e realização de Concurso Público destinado ao preenchimento de vagas e formação de cadastro de reserva de cargos de provimento efetivo, de nível médio e superior, do quadro de pessoal da Prefeitura Municipal de Muriaé - MG"
   },
   {
    "id": "pncp:13915632000127-2-000408/2026",
    "fonte_chave": "pncp:13915632000127-2-000408/2026",
    "origem": "robo",
-   "orgao": "Municipio De Juazeiro",
-   "cargo": "E a formação de cadastro de reserva no âmbito da administração direta do município de juazeiro/ba, especificamente para",
-   "area": "tribunais",
+   "orgao": "Prefeitura de Juazeiro",
+   "cargo": "Cargos a definir (banca contratada)",
+   "area": "administrativa",
    "abrangencia": "municipal",
    "uf": "BA",
    "cidade": "Juazeiro",
@@ -127,14 +130,15 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-13. Objeto: Contratação de instituição especializada, sem fins lucrativos, para a prestação de serviços técnicos destinados ao planUM MIejamento, à organização e à realização de concurso público para o provimento de cargos efetivos e a formação de cadastro de reserva no âmbito da Administração Direta do Municíp",
    "publicado_em": "2026-11-13",
    "verificado_em": "2026-11-15T22:47:55.296Z",
-   "visto_em": "2026-11-15T22:47:55.296Z"
+   "visto_em": "2026-11-15T22:59:58.513Z",
+   "objeto": "Contratação de instituição especializada, sem fins lucrativos, para a prestação de serviços técnicos destinados ao planUM MIejamento, à organização e à realização de concurso público para o provimento de cargos efetivos e a formação de cadastro de reserva no âmbito da Administração Direta do Municíp"
   },
   {
    "id": "pncp:18715383000140-2-003245/2026",
    "fonte_chave": "pncp:18715383000140-2-003245/2026",
    "origem": "robo",
-   "orgao": "Municipio De Belo Horizonte",
-   "cargo": "Publicos efetivos de analista de planejamento e gestao governamental da carreira da area da administracao geral, do carg",
+   "orgao": "Prefeitura de Belo Horizonte",
+   "cargo": "Analista de planejamento e gestao governamental da carreira da area",
    "area": "administrativa",
    "abrangencia": "municipal",
    "uf": "MG",
@@ -152,7 +156,8 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-13. Objeto: PRESTACAO DE SERVICOS QUE VISAM AO PLANEJAMENTO, A ORGANIZACAO E A EXECUCAO DO CONCURSO PUBLICO PARA PROVIMENTO DOS CARGOS PUBLICOS EFETIVOS DE ANALISTA DE PLANEJAMENTO E GESTAO GOVERNAMENTAL DA CARREIRA DA AREA DA ADMINISTRACAO GERAL, DO CARGO DE ENGENHEIRO E DO CARGO DE ARQUITETO DA CARREIRA DE EN",
    "publicado_em": "2026-11-13",
    "verificado_em": "2026-11-15T22:50:15.269Z",
-   "visto_em": "2026-11-15T22:50:15.269Z"
+   "visto_em": "2026-11-15T23:02:28.064Z",
+   "objeto": "PRESTACAO DE SERVICOS QUE VISAM AO PLANEJAMENTO, A ORGANIZACAO E A EXECUCAO DO CONCURSO PUBLICO PARA PROVIMENTO DOS CARGOS PUBLICOS EFETIVOS DE ANALISTA DE PLANEJAMENTO E GESTAO GOVERNAMENTAL DA CARREIRA DA AREA DA ADMINISTRACAO GERAL, DO CARGO DE ENGENHEIRO E DO CARGO DE ARQUITETO DA CARREIRA DE EN"
   },
   {
    "id": "dou:744080232",
@@ -183,8 +188,8 @@
    "id": "pncp:46634523000190-2-000965/2026",
    "fonte_chave": "pncp:46634523000190-2-000965/2026",
    "origem": "robo",
-   "orgao": "Municipio De Sao Manuel",
-   "cargo": "No quadro de pessoal",
+   "orgao": "Prefeitura de São Manuel",
+   "cargo": "Cargos a definir (banca contratada)",
    "area": "administrativa",
    "abrangencia": "municipal",
    "uf": "SP",
@@ -202,13 +207,14 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-12. Objeto: Contratação de empresa especializada na prestação de serviços técnico-operacionais, logísticos e administrativos para o planejamento, organização e execução de todas as etapas de Concurso Público destinado ao provimento de cargos efetivos no quadro de pessoal da Prefeitura do Município de São Manuel",
    "publicado_em": "2026-11-12",
    "verificado_em": "2026-11-15T22:42:07.428Z",
-   "visto_em": "2026-11-15T22:42:07.428Z"
+   "visto_em": "2026-11-15T22:42:07.428Z",
+   "objeto": "Contratação de empresa especializada na prestação de serviços técnico-operacionais, logísticos e administrativos para o planejamento, organização e execução de todas as etapas de Concurso Público destinado ao provimento de cargos efetivos no quadro de pessoal da Prefeitura do Município de São Manuel"
   },
   {
    "id": "pncp:46313714000150-2-000060/2026",
    "fonte_chave": "pncp:46313714000150-2-000060/2026",
    "origem": "robo",
-   "orgao": "Municipio De Itirapina",
+   "orgao": "Prefeitura de Itirapina",
    "cargo": "Cargos a definir (banca contratada)",
    "area": "administrativa",
    "abrangencia": "municipal",
@@ -227,7 +233,8 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-11. Objeto: REALIZACAO DE CONCURSO PUBLICO P/ PREENC IMENTO DE VAGAS.",
    "publicado_em": "2026-11-11",
    "verificado_em": "2026-11-15T22:37:55.898Z",
-   "visto_em": "2026-11-15T22:37:55.898Z"
+   "visto_em": "2026-11-15T22:37:55.898Z",
+   "objeto": "REALIZACAO DE CONCURSO PUBLICO P/ PREENC IMENTO DE VAGAS."
   },
   {
    "id": "dou:743466461",

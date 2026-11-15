@@ -373,7 +373,7 @@ async function main() {
   const itens = [...porId.values()]
     .map((i) => ({
       ...i,
-      situacao: !i.id.startsWith("dou:") || FIXAS.has(i.situacao) ? i.situacao : situacao(i.inscricoes_inicio, i.inscricoes_fim, i.prova_data),
+      situacao: /banca contratada/.test(i.cargo ?? "") ? "banca_contratada" : !i.id.startsWith("dou:") || FIXAS.has(i.situacao) ? i.situacao : situacao(i.inscricoes_inicio, i.inscricoes_fim, i.prova_data),
     }))
     .filter((i) => !i.id.startsWith("dou:") || !(i.prova_data && i.prova_data < limite))
     .filter((i) => !i.id.startsWith("dou:") || !(!i.prova_data && i.publicado_em && i.publicado_em < new Date(Date.now() - 240 * 86_400_000).toISOString().slice(0, 10)))

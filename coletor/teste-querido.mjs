@@ -2,8 +2,12 @@
 // Grava o resultado em status-querido.json. Não altera concursos.json.
 import { writeFile } from "node:fs/promises";
 
-const URL_TESTE =
-  "https://api.queridodiario.ok.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1";
+const Q = "gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1";
+// endereço da documentação em texto e endereço que aparece no exemplo (imagem) do tutorial
+const ENDERECOS = ["https://api.queridodiario.ok.org.br/", "https://queridodiario.ok.org.br/api/"];
+const resultados = [];
+for (const base of ENDERECOS) {
+const URL_TESTE = base + Q;
 const out = { testado_em: new Date().toISOString(), url: URL_TESTE };
 try {
   const r = await fetch(URL_TESTE, { headers: { "User-Agent": "LumenPlanRadar/1.0" } });
@@ -21,5 +25,7 @@ try {
 } catch (e) {
   out.erro = String(e?.cause?.code ?? e);
 }
-console.log(JSON.stringify(out, null, 1));
-await writeFile(new URL("../status-querido.json", import.meta.url), JSON.stringify(out, null, 1) + "\n");
+resultados.push(out);
+}
+console.log(JSON.stringify(resultados, null, 1));
+await writeFile(new URL("../status-querido.json", import.meta.url), JSON.stringify(resultados, null, 1) + "\n");

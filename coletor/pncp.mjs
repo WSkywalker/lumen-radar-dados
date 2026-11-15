@@ -77,9 +77,27 @@ function cargos(objeto) {
   const m =
     t.match(/provimento d[eoa]s? (?:\d+ \([^)]*\) )?(?:vagas? )?(?:(?:para|nos?|de) )?(?:(?:os|o) )?cargos? (?:efetivos? )?(?:d[eoa]s? )?([^.;]{3,120})/i) ??
     t.match(/para (?:os|o) cargos? d[eoa]s? ([^.;]{3,120})/i);
-  if (!m) return "Cargos a definir (banca contratada)";
-  const c = m[1].replace(/\s+(do|da|no|na) (quadro|municipio|prefeitura|camara)\b.*$/i, "").trim();
+  const generico = "Cargos a definir (banca contratada)";
+  if (!m) return generico;
+  let c = m[1]
+    .replace(/^(p[úu]blicos? )?(efetivos? )?(d[eoa]s? )?/i, "")
+    .replace(/\s+(do|da|no|na|para o|para a) (quadro|municipio|munic[íi]pio|prefeitura|camara|c[âa]mara|administra[çc][ãa]o)\b.*$/i, "")
+    .replace(/,?\s*(e|bem como)?\s*(a |à )?forma[çc][ãa]o de cadastro.*$/i, "")
+    .trim();
+  const n = norm(c);
+  if (c.length < 4 || /^(e|no|na|nos|nas|de|do|da|para)\b/.test(n) || /cadastro de reserva|quadro de pessoal|conforme|edital|termo de referencia/.test(n)) return generico;
   return c.charAt(0).toUpperCase() + c.slice(1).toLowerCase();
+}
+
+/** "MUNICIPIO DE BATAGUASSU" -> "Prefeitura de Bataguassu"; preposições em minúsculas. */
+function nomeOrgao(razao, cidade) {
+  let t = String(razao ?? "Órgão público").replace(/\s+/g, " ").trim().replace(/\s*-\s*[A-Za-z]{2}$/, "");
+  const n = norm(t);
+  if (cidade && /^(municipio|prefeitura)( municipal)? d[eo]/.test(n)) return `Prefeitura de ${cidade}`;
+  if (cidade && /^camara (municipal|de vereadores)/.test(n)) return `Câmara Municipal de ${cidade}`;
+  t = t.toLowerCase().replace(/(^|[\s(/-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase());
+  t = t.replace(/\b(De|Do|Da|Dos|Das|E|Em)\b/g, (w) => w.toLowerCase());
+  return t.replace(/^Municipio de /, "Prefeitura de ").replace(/^Município de /, "Prefeitura de ");
 }
 
 const AREAS = [
@@ -171,9 +189,10 @@ async function main() {
         id,
         fonte_chave: id,
         origem: "robo",
-        orgao: orgaoNome.replace(/\b(\p{L})(\p{L}*)/gu, (_, a, b) => a + b.toLowerCase()),
+        orgao: nomeOrgao(orgaoNome, loc.cidade),
         cargo: cargos(c.objetoContrato ?? ""),
-        area: area(`${orgaoNome} ${objeto}`),
+        area: area(`${orgaoNome} ${cargos(c.objetoContrato ?? "")}`),
+        objeto: String(c.objetoContrato ?? "").replace(/\s+/g, " ").slice(0, 600),
         abrangencia: loc.cidade ? "municipal" : esfera,
         uf: loc.uf,
         cidade: loc.cidade,
@@ -196,6 +215,17 @@ async function main() {
     }
     if (j.data.length < 500 || (j.totalPaginas && pagina >= j.totalPaginas)) break;
     await sleep(PAUSA_MS);
+  }
+
+  // revisa os itens do PNCP já salvos com as regras atuais
+  for (const i of porId.values()) {
+    if (!i.id.startsWith("pncp:")) continue;
+    const obj = i.objeto ?? String(i.observacoes ?? "").split("Objeto: ")[1] ?? "";
+    if (!obj) continue;
+    i.objeto = obj;
+    i.cargo = cargos(obj);
+    i.orgao = nomeOrgao(i.orgao, i.cidade);
+    i.area = area(`${i.orgao} ${i.cargo}`);
   }
 
   const limite = new Date(Date.now() - VALIDADE_DIAS * 86_400_000).toISOString().slice(0, 10);

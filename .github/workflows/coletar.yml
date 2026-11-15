@@ -27,9 +27,12 @@ jobs:
       - name: Teste do Querido Diário
         continue-on-error: true
         run: node coletor/teste-querido.mjs
+      - name: Teste do PNCP
+        continue-on-error: true
+        run: node coletor/teste-pncp.mjs
       - name: Salvar resultado
         run: |
-          for f in concursos.json status-querido.json; do [ -f "$f" ] && git add "$f"; done
+          for f in concursos.json status-querido.json status-pncp.json; do [ -f "$f" ] && git add "$f"; done
           if git diff --cached --quiet; then
             echo "Sem mudanças."
             exit 0

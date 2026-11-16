@@ -17,7 +17,7 @@ const MUNICIPIOS_URL = "https://study-zen-planner-53.lovable.app/municipios.json
 const DIAS = Number(process.env.SP_DIAS ?? 3);
 const BUSCAS = ["abertura de inscrições", "concurso público", "edital de abertura"];
 const MAX_PAGINAS = 10;
-const MAX_LEITURAS = 80;
+const MAX_LEITURAS = 250;
 const PAUSA_MS = 900;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -64,8 +64,23 @@ function origem(it, conteudo) {
     const orgao = niveis[2] && !/prefeitura/i.test(niveis[2]) ? `${niveis[2]} — ${cidade}` : `Prefeitura de ${cidade}`;
     return { orgao, cidade, lat: m?.[2] ?? null, lon: m?.[3] ?? null, abrangencia: "municipal" };
   }
-  const ultimo = niveis[niveis.length - 1] ?? "";
-  const orgao = ultimo && !/atos de gestao|despesas|executivo/i.test(norm(ultimo)) ? ultimo : (niveis[2] ?? "Governo do Estado de São Paulo");
+  // do nível mais fundo para cima, pula unidades internas genéricas (Diretoria de Pessoal, Secretaria Geral...)
+  const GENERICO = /^(diretoria|departamento|divisao|coordenadoria|secretaria geral|secretaria executiva|gabinete|secao|servico|nucleo|centro de recursos humanos|unidade|comissao|atos de gestao|despesas|executivo|legislativo|judiciario)\b/;
+  const RAMO = /^(executivo|legislativo|judiciario|ministerio publico|atos de gestao e despesas)$/;
+  let orgao = "Governo do Estado de São Paulo";
+  for (let k = niveis.length - 1; k >= 0; k--) {
+    const nk = norm(niveis[k]);
+    if (RAMO.test(nk)) {
+      if (nk === "ministerio publico") orgao = "Ministério Público do Estado de São Paulo";
+      continue;
+    }
+    if (!GENERICO.test(nk)) {
+      orgao = niveis[k];
+      break;
+    }
+  }
+  if (/ministerio publico/.test(norm(niveis.join(" "))) && !/ministerio publico/.test(norm(orgao))) orgao = "Ministério Público do Estado de São Paulo";
+  if (/^(policia (militar|civil|penal|tecnico-cientifica)|corpo de bombeiros|defensoria publica|tribunal de justica)$/.test(norm(orgao))) orgao = `${orgao} do Estado de São Paulo`;
   // concursos de autarquias ligadas a um município (ex.: Hospital de Ribeirão Preto) continuam estaduais
   void conteudo;
   return { orgao, cidade: null, lat: null, lon: null, abrangencia: "estadual" };
@@ -106,7 +121,7 @@ async function main() {
   let lidos = 0, novos = 0;
   for (const [pk, it] of candidatos) {
     const id = `sp:${pk}`;
-    if (porId.has(id)) {
+    if (porId.has(id) && porId.get(id).hierarquia) {
       porId.get(id).visto_em = new Date().toISOString();
       continue;
     }
@@ -150,6 +165,7 @@ async function main() {
       inscricoes_inicio: insIni,
       inscricoes_fim: insFim,
       prova_data: prova,
+      hierarquia: String(it.hierarchy ?? ""),
       edital_url: `https://doe.sp.gov.br/${it.slug}`,
       fonte_url: `https://doe.sp.gov.br/${it.slug}`,
       observacoes: `${String(it.title ?? "").trim()} — Diário Oficial do Estado de São Paulo de ${String(it.date ?? "").slice(0, 10).split("-").reverse().join("/")}.`,

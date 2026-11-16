@@ -2,8 +2,10 @@
 import { writeFile } from "node:fs/promises";
 const UA = "LumenPlanRadar/1.0 (levantamento; +https://github.com/WSkywalker/lumen-radar-dados)";
 const FONTES = {
-  "DOE-SE (IOSE)": "https://www.iose.se.gov.br/",
-  "DOE-SE busca": "https://www.iose.se.gov.br/buscanova/",
+  "DOE-SE (IOSE)": "https://iose.se.gov.br/",
+  "DOE-SE http": "http://iose.se.gov.br/",
+  "DOE-SE busca": "https://iose.se.gov.br/buscanova/",
+  "DOE-SE portal": "https://iose.se.gov.br/portal/visualizacoes/diario_oficial",
   "Município Online (SE)": "https://www.municipioonline.com.br/se/prefeitura/simaodias",
   "DOM Aracaju": "https://www.aracaju.se.gov.br/",
   "Querido Diário Aracaju": "https://api.queridodiario.org.br/gazettes?territory_ids=2800308&size=1",

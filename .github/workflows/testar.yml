@@ -7,6 +7,10 @@ on:
         description: "Arquivo em coletor/ (ex.: sp.mjs)"
         required: true
         default: "sp.mjs"
+      dias:
+        description: "Dias para trás (diários)"
+        required: false
+        default: "3"
 
 jobs:
   testar:
@@ -18,6 +22,9 @@ jobs:
         with:
           node-version: 20
       - name: Rodar
+        env:
+          SP_DIAS: ${{ github.event.inputs.dias }}
+          DIARIOS_DIAS: ${{ github.event.inputs.dias }}
         run: node "coletor/${{ github.event.inputs.coletor }}"
       - name: Mostrar o que entrou
         run: |

@@ -8,7 +8,7 @@
 // Uso: node coletor/diarios-estaduais.mjs  (Node 20+, sem dependências).
 
 import { readFile, writeFile } from "node:fs/promises";
-import { ABERTURA, area, banca, cargo, dataProva, norm, periodoInscricoes, textoLimpo, vagas } from "./regras.mjs";
+import { area, banca, cargo, dataProva, norm, periodoInscricoes, textoLimpo, vagas } from "./regras.mjs";
 
 const ARQUIVO = new URL("../concursos.json", import.meta.url);
 const UA = "LumenPlanRadar/1.0 (+https://github.com/WSkywalker/lumen-radar-dados)";
@@ -20,7 +20,7 @@ const DIARIOS = [
   { uf: "GO", nome: "Diário Oficial de Goiás", base: "https://diariooficial.abc.go.gov.br" },
   { uf: "MT", nome: "Diário Oficial de Mato Grosso", base: "https://www.iomat.mt.gov.br" },
 ];
-const BUSCAS = ['"abertura de inscrições"', '"torna pública a abertura"', '"edital de abertura"'];
+const BUSCAS = ['"concurso público" abertura', '"edital de abertura"', '"abertura de inscrições"', '"realização de concurso público"'];
 const DIAS = Number(process.env.DIARIOS_DIAS ?? 3);
 const MAX_PAGINAS = 8; // de 10 resultados cada
 const PAUSA_MS = 1200;
@@ -49,22 +49,29 @@ async function json(url) {
 const NAO_ABERTURA =
   /(nomea|convoca|resultado|homolog|classifica|retifica|prorroga|torna sem efeito|exonera|posse|gabarito|recurso|deferi|aprovad|licitac|pregao|contrato|extrato|processo seletivo|selecao simplificada|credenciamento|chamamento|estagi|residencia|aditamento|cancelamento|anulacao|suspensao)/;
 
-/** Recorta o ato que contém a abertura: do título ("EDITAL ...") até ~8 mil caracteres depois. */
-function recortar(pagina) {
-  const t = String(pagina);
-  const n = norm(t);
-  const m = n.match(/(torna publica a abertura|abertura de inscric|abertura do concurso|estarao abertas as inscric|ficam abertas as inscric)/);
-  if (!m) return null;
-  const pos = m.index ?? 0;
-  // volta até o título do ato mais próximo
-  const antes = n.slice(Math.max(0, pos - 2500), pos);
-  const titulos = [...antes.matchAll(/(edital|aviso|portaria|decreto|resolucao)\b[^.]{0,80}/g)];
-  const ini = titulos.length ? Math.max(0, pos - 2500) + (titulos[titulos.length - 1].index ?? 0) : Math.max(0, pos - 800);
-  return t.slice(ini, ini + 8000);
-}
+// sinais de abertura (mais amplo que o do DOU: os diários estaduais também publicam "aviso de edital")
+const SINAL_ABERTURA =
+  /(torna (publica|publico)[^.]{0,80}abertura|abertura d[ae]s? inscric|abertura do concurso|edital de abertura|estarao abertas as inscric|ficam abertas as inscric|torna publica a realizacao de concurso|realizacao de concurso publico para (o )?provimento)/;
+const INICIO_ATO = /\b(edital|aviso|portaria|decreto|resolucao|instrucao|extrato|ato|termo|comunicado|errata|despacho)\b/;
 
-const MESES_N = ["", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
-void MESES_N;
+/**
+ * Nestes diários cada ato termina com "Protocolo 1234567". Separa a página
+ * em atos e devolve os que anunciam a abertura de um concurso público,
+ * com o cabeçalho (nome do órgão) que vem antes do título do ato.
+ */
+function atosDeAbertura(pagina) {
+  const t = String(pagina).replace(/-\s*\n\s*/g, "");
+  const partes = t.split(/protocolo\s*(?:n[ºo°.]*\s*)?\d{5,}/i);
+  const out = [];
+  for (const parte of partes) {
+    const n = norm(parte);
+    if (!/concurso publico/.test(n) || !SINAL_ABERTURA.test(n)) continue;
+    const i = n.search(INICIO_ATO);
+    const cabecalho = i > 3 ? parte.slice(0, Math.min(i + 5, 160)).replace(/\s+/g, " ").trim() : "";
+    out.push({ ato: parte.slice(0, 12000), cabecalho: cabecalho.replace(/\s+(edital|aviso|portaria|decreto|resolu\S*|instru\S*|extrato|ato|termo|comunicado|errata|despacho)\b.*$/i, "").trim() });
+  }
+  return out;
+}
 
 let MUNIS = [];
 function achaCidade(nome, uf) {
@@ -72,24 +79,32 @@ function achaCidade(nome, uf) {
   return MUNIS.find((x) => x[1] === uf && norm(x[0]) === k) ?? null;
 }
 
-/** Órgão e cidade a partir do texto do ato. */
-function orgaoDoAto(ato, uf) {
-  const t = String(ato).replace(/\s+/g, " ");
-  const mun = t.match(/(?:prefeitura municipal|munic[ií]pio|c[âa]mara municipal|prefeito municipal|prefeita municipal)\s+d[eoa]s?\s+([A-ZÀ-Úa-zà-ú' -]{3,40}?)(?=[\s,./-]*(?:ES|AP|AM|GO|MT|estado|\/|,|\.|-|torna|no uso|$))/i);
+const titulo = (s) =>
+  s
+    .toLowerCase()
+    .replace(/(^|[\s(/-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase())
+    .replace(/\b(De|Do|Da|Dos|Das|E|Em)\b/g, (w) => w.toLowerCase())
+    .replace(/\b(S\/a|Ltda)\b/gi, (w) => w.toUpperCase());
+
+/** Órgão e cidade: primeiro pelo cabeçalho do ato, depois pelo texto. */
+function orgaoDoAto(ato, cabecalho, uf) {
+  const fonte = `${cabecalho} ${String(ato).slice(0, 1500)}`.replace(/\s+/g, " ");
+  const mun = fonte.match(/(prefeitura municipal|munic[ií]pio|c[âa]mara municipal)\s+d[eoa]s?\s+([A-ZÀ-Úa-zà-ú' -]{3,40}?)(?=\s*(?:[-/,.]|\b(?:ES|AP|AM|GO|MT)\b|estado|torna|edital|aviso|no uso|$))/i);
   if (mun) {
-    const cidade = achaCidade(mun[1].trim(), uf);
+    const cidade = achaCidade(mun[2].trim(), uf);
     if (cidade) {
-      const camara = /c[âa]mara municipal/i.test(mun[0]);
+      const camara = /c[âa]mara/i.test(mun[1]);
       return { orgao: `${camara ? "Câmara Municipal" : "Prefeitura"} de ${cidade[0]}`, cidade, abrangencia: "municipal" };
     }
   }
-  const est = t.match(
-    /(secretaria de estado d[aoe]s? [^,.;:()]{3,70}|pol[íi]cia (?:militar|civil|penal|cient[íi]fica) d[oe] [^,.;:()]{3,40}|corpo de bombeiros militar[^,.;:()]{0,40}|tribunal (?:de justi[çc]a|de contas|regional)[^,.;:()]{0,60}|minist[ée]rio p[úu]blico[^,.;:()]{0,40}|defensoria p[úu]blica[^,.;:()]{0,40}|assembleia legislativa[^,.;:()]{0,40}|procuradoria[- ]geral[^,.;:()]{0,40}|departamento estadual de tr[âa]nsito[^,.;:()]{0,30}|detran[^,.;:()]{0,30}|universidade (?:estadual|do estado)[^,.;:()]{0,60}|instituto [^,.;:()]{3,60})/i,
-  );
-  if (est) {
-    const o = est[1].trim().replace(/\s+/g, " ");
-    return { orgao: o.charAt(0).toUpperCase() + o.slice(1), cidade: null, abrangencia: "estadual" };
+  const cab = cabecalho.replace(/^[\d\s.,;:/-]+/, "").trim();
+  if (cab.length >= 4 && cab.length <= 140 && !/^(vitoria|goiania|cuiaba|macapa|manaus)\b/i.test(cab)) {
+    return { orgao: titulo(cab), cidade: null, abrangencia: "estadual" };
   }
+  const est = fonte.match(
+    /(secretaria de estado d[aoe]s? [^,.;:()]{3,70}|pol[íi]cia (?:militar|civil|penal|cient[íi]fica) d[oe] [^,.;:()]{3,40}|corpo de bombeiros militar[^,.;:()]{0,40}|tribunal (?:de justi[çc]a|de contas|regional)[^,.;:()]{0,60}|minist[ée]rio p[úu]blico[^,.;:()]{0,40}|defensoria p[úu]blica[^,.;:()]{0,40}|assembleia legislativa[^,.;:()]{0,40}|detran[^,.;:()]{0,30}|universidade (?:estadual|do estado)[^,.;:()]{0,60}|banco do estado[^,.;:()]{0,60}|instituto [^,.;:()]{3,60})/i,
+  );
+  if (est) return { orgao: titulo(est[1].trim()), cidade: null, abrangencia: "estadual" };
   return { orgao: null, cidade: null, abrangencia: "estadual" };
 }
 
@@ -122,13 +137,13 @@ async function main() {
         for (const h of hits) {
           const src = h._source ?? {};
           const pagina = textoLimpo(src.conteudo ?? "");
-          const ato = recortar(pagina);
-          if (!ato) continue;
-          const inicio = norm(ato.slice(0, 1500));
-          if (!/concurso publico/.test(inicio) || !ABERTURA.test(norm(ato.slice(0, 4000)))) continue;
-          if (NAO_ABERTURA.test(inicio.slice(0, 250))) continue;
-          if (/processo seletivo/.test(inicio.slice(0, 600)) && !/concurso publico/.test(inicio.slice(0, 300))) continue;
-          const o = orgaoDoAto(ato, d.uf);
+          for (const { ato, cabecalho } of atosDeAbertura(pagina)) {
+          const n0 = norm(ato);
+          const k = n0.search(INICIO_ATO);
+          const tituloAto = n0.slice(Math.max(0, k), Math.max(0, k) + 220);
+          if (NAO_ABERTURA.test(tituloAto) && !/edital de abertura|abertura d[ae]s? inscric/.test(tituloAto)) continue;
+          if (/processo seletivo|selecao simplificada/.test(n0.slice(0, 800)) && !/concurso publico/.test(n0.slice(0, 500))) continue;
+          const o = orgaoDoAto(ato, cabecalho, d.uf);
           if (!o.orgao) continue; // sem órgão identificável: melhor não publicar
           aceitos++;
           const id = `${d.uf.toLowerCase()}:${src.diario_id}-${src.pagina}-${norm(o.orgao).slice(0, 30).replace(/\s+/g, "-")}`;
@@ -171,6 +186,7 @@ async function main() {
             visto_em: new Date().toISOString(),
           });
           novos++;
+          }
         }
         if (hits.length < 10) break;
       }

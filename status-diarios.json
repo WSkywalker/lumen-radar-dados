@@ -1,0 +1,322 @@
+{
+ "testado_em": "2026-11-16T01:50:20.559Z",
+ "diarios": {
+  "AC": {
+   "url": "https://www.diario.ac.gov.br/",
+   "final": "https://www.diario.ac.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": [
+    "/*?",
+    "/*play",
+    "/*video",
+    "/*app",
+    "/*android",
+    "/*download",
+    "/*ios",
+    "/*=",
+    "/*html",
+    "/*casino",
+    "/*uri",
+    "/?/"
+   ],
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "Di�rio Oficial do Estado do Acre"
+  },
+  "AL": {
+   "url": "https://www.imprensaoficial.al.gov.br/",
+   "final": "https://www.imprensaoficial.al.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": [],
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "Imprensa Oficial do Estado de Alagoas"
+  },
+  "AP": {
+   "url": "https://diofe.portal.ap.gov.br/",
+   "final": "https://diofe.portal.ap.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "Diário Oficial  / Home"
+  },
+  "AM": {
+   "url": "https://diario.imprensaoficial.am.gov.br/",
+   "final": "https://diario.imprensaoficial.am.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "Diário Oficial  / Home"
+  },
+  "BA": {
+   "url": "https://dool.egba.ba.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "UND_ERR_CONNECT_TIMEOUT",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "CE": {
+   "url": "https://www.imprensaoficial.ce.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "ENOTFOUND",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "DF": {
+   "url": "https://dodf.df.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "UND_ERR_CONNECT_TIMEOUT",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "ES": {
+   "url": "https://ioes.dio.es.gov.br/",
+   "final": "https://ioes.dio.es.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": "Diário Oficial  / Home"
+  },
+  "GO": {
+   "url": "https://diariooficial.abc.go.gov.br/",
+   "final": "https://diariooficial.abc.go.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "ABC - Agência Brasil Central  / Home"
+  },
+  "MA": {
+   "url": "https://www.diariooficial.ma.gov.br/",
+   "final": "https://www.diariooficial.ma.gov.br/",
+   "status": 500,
+   "erro": null,
+   "robots": "sem robots (500)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "MT": {
+   "url": "https://www.iomat.mt.gov.br/",
+   "final": "https://www.iomat.mt.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "Diário Oficial  / Home"
+  },
+  "MS": {
+   "url": "https://www.spdo.ms.gov.br/diariodoe",
+   "final": null,
+   "status": 0,
+   "erro": "ENOTFOUND",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "MG": {
+   "url": "https://www.jornalminasgerais.mg.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "PA": {
+   "url": "https://www.ioepa.com.br/",
+   "final": "http://www.ioepa.com.br/portal/",
+   "status": 200,
+   "erro": null,
+   "robots": [],
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": ""
+  },
+  "PB": {
+   "url": "https://auniao.pb.gov.br/",
+   "final": "https://auniao.pb.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": [],
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "Página Inicial — A União - Jornal, Editora e Gráfica"
+  },
+  "PR": {
+   "url": "https://www.documentos.dioe.pr.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "ERR_TLS_CERT_ALTNAME_INVALID",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "PE": {
+   "url": "https://diariooficial.cepe.com.br/",
+   "final": "https://diariooficial.cepe.com.br/diariooficialweb/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": false,
+   "fala_pdf": true,
+   "api_ou_json": false,
+   "titulo": "CEPE"
+  },
+  "PI": {
+   "url": "https://www.diario.pi.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "UND_ERR_CONNECT_TIMEOUT",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "RJ": {
+   "url": "https://www.ioerj.com.br/",
+   "final": "https://www.ioerj.com.br/portal/",
+   "status": 200,
+   "erro": null,
+   "robots": [
+    "/portal/modules/conteudoonline/view_pdf.php?ie=OTAzMg*",
+    "/portal/modules/conteudoonline/view_pdf.php?ie=ODg4NQ*",
+    "/portal/modules/conteudoonline/view_pdf.php?ie=MTQ0OQ*"
+   ],
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": true,
+   "titulo": "Imprensa Oficial do Estado do Rio de Janeiro : Nosso papel é servir a sociedade"
+  },
+  "RN": {
+   "url": "http://diariooficial.rn.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "ERR_TLS_CERT_ALTNAME_INVALID",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "RS": {
+   "url": "https://www.diariooficial.rs.gov.br/",
+   "final": "https://www.diariooficial.rs.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": [],
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": "Diário Oficial do Rio Grande do Sul"
+  },
+  "RO": {
+   "url": "https://diof.ro.gov.br/",
+   "final": "https://diof.ro.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": [
+    "/wp-admin/",
+    "/data/uploads/wpo/wpo-plugins-tables-list.json"
+   ],
+   "tem_busca": true,
+   "fala_pdf": true,
+   "api_ou_json": true,
+   "titulo": "Imprensa Oficial do Governo do Estado de Rondônia - Diário Oficial"
+  },
+  "RR": {
+   "url": "https://www.imprensaoficial.rr.gov.br/",
+   "final": "https://www.imprensaoficial.rr.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": ":: IMPRENSA OFICIAL - GOVERNO DO ESTADO DE RORAIMA ::"
+  },
+  "SC": {
+   "url": "https://doe.sea.sc.gov.br/",
+   "final": "https://doe.sea.sc.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": [],
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": "Redirect"
+  },
+  "SP": {
+   "url": "https://doe.sp.gov.br/",
+   "final": "https://doe.sp.gov.br/",
+   "status": 200,
+   "erro": null,
+   "robots": "sem robots (404)",
+   "tem_busca": true,
+   "fala_pdf": false,
+   "api_ou_json": true,
+   "titulo": "Diário Oficial do Estado de São Paulo"
+  },
+  "SE": {
+   "url": "https://www.segrase.se.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "ENOTFOUND",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  },
+  "TO": {
+   "url": "https://diariooficial.to.gov.br/",
+   "final": null,
+   "status": 0,
+   "erro": "UND_ERR_CONNECT_TIMEOUT",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
+   "api_ou_json": false,
+   "titulo": null
+  }
+ }
+}

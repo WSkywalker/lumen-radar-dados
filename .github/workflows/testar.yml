@@ -28,6 +28,7 @@ jobs:
           SP_DIAS: ${{ github.event.inputs.dias }}
           DIARIOS_DIAS: ${{ github.event.inputs.dias }}
           MO_DIAS: ${{ github.event.inputs.dias }}
+          MO_DEBUG: "1"
         run: node "coletor/${{ github.event.inputs.coletor }}"
       - name: Mostrar o que entrou
         run: |

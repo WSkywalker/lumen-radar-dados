@@ -180,6 +180,13 @@ async function main() {
         resumo.erros++;
         continue;
       }
+      if (process.env.MO_DEBUG) {
+        const nn = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ");
+        for (const mm of nn.matchAll(/concurso publico/g)) {
+          console.log(`  ? ${s} ${ed.data}: …${nn.slice(Math.max(0, mm.index - 140), mm.index + 120)}…`);
+          resumo.mencoes = (resumo.mencoes ?? 0) + 1;
+        }
+      }
       for (const ato of editais(texto)) {
         resumo.editais++;
         console.log(`  - ${s} ${ed.data}: ${norm(ato.slice(0, 160)).replace(/\s+/g, " ")}`);
@@ -252,7 +259,7 @@ async function main() {
     JSON.stringify({ ...base, gerado_em: new Date().toISOString(), total: itens.length, itens }, null, 1) + "\n",
   );
   console.log(
-    `Município Online (SE): cidades ${resumo.cidades}/${CIDADES.length}; edições lidas ${resumo.edicoes}; editais ${resumo.editais}; novos ${resumo.novos}; erros ${resumo.erros}; total no arquivo ${itens.length}`,
+    `Município Online (SE): cidades ${resumo.cidades}/${CIDADES.length}; edições lidas ${resumo.edicoes}; editais ${resumo.editais}; novos ${resumo.novos}; erros ${resumo.erros}; menções ${resumo.mencoes ?? '-'}; total no arquivo ${itens.length}`,
   );
 }
 

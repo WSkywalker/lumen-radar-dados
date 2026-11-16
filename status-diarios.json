@@ -1,5 +1,5 @@
 {
- "testado_em": "2026-11-16T13:10:59.436Z",
+ "testado_em": "2026-11-16T13:38:37.865Z",
  "diarios": {
   "AC": {
    "url": "https://www.diario.ac.gov.br/",
@@ -170,14 +170,14 @@
   },
   "PB": {
    "url": "https://auniao.pb.gov.br/",
-   "final": "https://auniao.pb.gov.br/",
-   "status": 200,
-   "erro": null,
-   "robots": [],
-   "tem_busca": true,
-   "fala_pdf": true,
+   "final": null,
+   "status": 0,
+   "erro": "UND_ERR_CONNECT_TIMEOUT",
+   "robots": "sem robots (0)",
+   "tem_busca": false,
+   "fala_pdf": false,
    "api_ou_json": false,
-   "titulo": "Página Inicial — A União - Jornal, Editora e Gráfica"
+   "titulo": null
   },
   "PR": {
    "url": "https://www.documentos.dioe.pr.gov.br/",
@@ -229,9 +229,9 @@
   },
   "RN": {
    "url": "http://diariooficial.rn.gov.br/",
-   "final": "http://diariooficial.rn.gov.br/",
-   "status": 404,
-   "erro": null,
+   "final": null,
+   "status": 0,
+   "erro": "ERR_TLS_CERT_ALTNAME_INVALID",
    "robots": "sem robots (0)",
    "tem_busca": false,
    "fala_pdf": false,

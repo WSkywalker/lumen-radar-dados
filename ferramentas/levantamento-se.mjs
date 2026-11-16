@@ -1,32 +1,23 @@
-// Levantamento das fontes de Sergipe: robots.txt, se responde, se tem busca/API.
+// Levantamento: quais municípios de Sergipe usam o Diário Oficial do "Município Online".
 import { writeFile } from "node:fs/promises";
 const UA = "LumenPlanRadar/1.0 (levantamento; +https://github.com/WSkywalker/lumen-radar-dados)";
-const FONTES = {
-  "DOE-SE (IOSE)": "https://iose.se.gov.br/",
-  "DOE-SE http": "http://iose.se.gov.br/",
-  "DOE-SE busca": "https://iose.se.gov.br/buscanova/",
-  "DOE-SE portal": "https://iose.se.gov.br/portal/visualizacoes/diario_oficial",
-  "Município Online (SE)": "https://www.municipioonline.com.br/se/prefeitura/simaodias",
-  "DOM Aracaju": "https://www.aracaju.se.gov.br/",
-  "Querido Diário Aracaju": "https://api.queridodiario.org.br/gazettes?territory_ids=2800308&size=1",
-};
-const out = {};
-for (const [nome, url] of Object.entries(FONTES)) {
-  const r = {};
+const munis = await (await fetch("https://study-zen-planner-53.lovable.app/municipios.json")).json();
+const se = munis.filter((m) => m[1] === "SE");
+const slug = (n) => n.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const ok = [], nao = [];
+for (const m of se) {
+  const s = slug(m[0]);
   try {
-    const res = await fetch(url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(25000) });
-    const t = await res.text();
-    r.status = res.status; r.final = res.url;
-    r.titulo = t.match(/<title[^>]*>([^<]*)/i)?.[1]?.trim()?.slice(0, 120) ?? null;
-    r.busca = /pesquis|busca|search/i.test(t);
-    r.api = [...new Set((t.match(/\/(api|apifront|busca)[\w\/.-]{2,60}/g) ?? []))].slice(0, 12);
-    r.links_diario = [...new Set((t.match(/href="[^"]*(diario|edic|publica)[^"]*"/gi) ?? []))].slice(0, 15);
-    const rob = await fetch(new URL("/robots.txt", res.url), { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
-    r.robots = rob.ok ? (await rob.text()).slice(0, 400) : `sem robots (${rob.status})`;
+    const r = await fetch(`https://www.municipioonline.com.br/se/prefeitura/${s}/cidadao/diariooficial`, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) });
+    const t = await r.text();
+    if (r.ok && /Di[áa]rio Oficial Eletr[ôo]nico/i.test(t) && /ddlTipoPublicacao/.test(t)) ok.push(`${m[0]} (${s})`);
+    else nao.push(`${m[0]}:${r.status}`);
   } catch (e) {
-    r.erro = String(e?.cause?.code ?? e?.name ?? e);
+    nao.push(`${m[0]}:erro`);
   }
-  out[nome] = r;
-  console.log(nome, JSON.stringify(r).slice(0, 900));
+  await new Promise((r) => setTimeout(r, 500));
 }
-await writeFile(new URL("../status-se.json", import.meta.url), JSON.stringify(out, null, 1) + "\n");
+console.log(`SE com Município Online: ${ok.length}/${se.length}`);
+console.log("SIM: " + ok.join(", "));
+console.log("NAO: " + nao.join(", "));
+await writeFile(new URL("../status-se.json", import.meta.url), JSON.stringify({ municipio_online: ok, sem: nao }, null, 1) + "\n");

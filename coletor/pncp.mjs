@@ -138,7 +138,7 @@ function banca(razao) {
     ["Instituto Access", /access/], ["Avança SP", /avanca/], ["IBAM", /\bibam\b|instituto brasileiro de administracao municipal/],
     ["Instituto Consulplan", /consulplan/], ["Legalle", /legalle/], ["Objetiva", /objetiva concursos/], ["FAFIPA", /fafipa/],
   ];
-  const k = conhecidas.find(([, re]) => re.test(r));
+  const k = conhecidas.find(([nome, re]) => re.test(r) || r === norm(nome));
   if (k) return k[0];
   const t = String(razao ?? "").replace(/\s+/g, " ").trim().slice(0, 80);
   if (!t) return null;

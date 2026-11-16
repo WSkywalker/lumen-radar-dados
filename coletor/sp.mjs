@@ -65,7 +65,7 @@ function origem(it, conteudo) {
     return { orgao, cidade, lat: m?.[2] ?? null, lon: m?.[3] ?? null, abrangencia: "municipal" };
   }
   // do nível mais fundo para cima, pula unidades internas genéricas (Diretoria de Pessoal, Secretaria Geral...)
-  const GENERICO = /^(diretoria|departamento|divisao|coordenadoria|secretaria geral|secretaria executiva|gabinete|secao|servico|nucleo|centro de recursos humanos|unidade|comissao|atos de gestao|despesas|executivo|legislativo|judiciario)\b/;
+  const GENERICO = /^(comando geral|comando|subcomando|delegacia geral|diretoria|departamento|divisao|coordenadoria|secretaria geral|secretaria executiva|gabinete|secao|servico|nucleo|centro de recursos humanos|unidade|comissao|atos de gestao|despesas|executivo|legislativo|judiciario)\b/;
   const RAMO = /^(executivo|legislativo|judiciario|ministerio publico|atos de gestao e despesas)$/;
   let orgao = "Governo do Estado de São Paulo";
   for (let k = niveis.length - 1; k >= 0; k--) {
@@ -80,7 +80,7 @@ function origem(it, conteudo) {
     }
   }
   if (/ministerio publico/.test(norm(niveis.join(" "))) && !/ministerio publico/.test(norm(orgao))) orgao = "Ministério Público do Estado de São Paulo";
-  if (/^(policia (militar|civil|penal|tecnico-cientifica)|corpo de bombeiros|defensoria publica|tribunal de justica)$/.test(norm(orgao))) orgao = `${orgao} do Estado de São Paulo`;
+  if (/^(policia (militar|civil|penal|tecnico-cientifica)|corpo de bombeiros|defensoria publica|tribunal de justica)( do estado)?$/.test(norm(orgao))) orgao = `${orgao.replace(/ do estado$/i, "")} do Estado de São Paulo`;
   // concursos de autarquias ligadas a um município (ex.: Hospital de Ribeirão Preto) continuam estaduais
   void conteudo;
   return { orgao, cidade: null, lat: null, lon: null, abrangencia: "estadual" };
@@ -174,6 +174,11 @@ async function main() {
       visto_em: new Date().toISOString(),
     });
     novos++;
+  }
+
+  // revisa o órgão dos itens já salvos com as regras atuais
+  for (const i of porId.values()) {
+    if (i.id.startsWith("sp:") && i.hierarquia && !i.cidade) i.orgao = origem({ hierarchy: i.hierarquia, slug: "" }, "").orgao;
   }
 
   // atualiza situação pelas datas e retira o que já passou

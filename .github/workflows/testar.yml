@@ -1,0 +1,24 @@
+name: Testar coletor (sem salvar)
+
+on:
+  workflow_dispatch:
+    inputs:
+      coletor:
+        description: "Arquivo em coletor/ (ex.: sp.mjs)"
+        required: true
+        default: "sp.mjs"
+
+jobs:
+  testar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Rodar
+        run: node "coletor/${{ github.event.inputs.coletor }}"
+      - name: Mostrar o que entrou
+        run: |
+          node -e 'const j=require("./concursos.json"); const pref={"sp.mjs":"sp:","diarios-estaduais.mjs":/^(es|ap|am|go|mt):/,"aocp.mjs":"aocp:"}[process.argv[1]]; for (const i of j.itens.filter(i=> typeof pref==="string" ? i.id.startsWith(pref) : pref.test(i.id))) console.log("-", [i.situacao, i.uf, i.cidade, i.orgao, i.cargo.slice(0,50), i.vagas, i.banca, i.inscricoes_inicio, i.inscricoes_fim, i.prova_data].join(" | "))' "${{ github.event.inputs.coletor }}"

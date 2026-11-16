@@ -4,7 +4,12 @@ on:
   schedule:
     # 06:17 e 18:17 no horário de Brasília (UTC-3)
     - cron: "17 9,21 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: "Dias para trás nos diários estaduais (padrão 3)"
+        required: false
+        default: "3"
 
 permissions:
   contents: write
@@ -35,9 +40,13 @@ jobs:
         run: node coletor/aocp.mjs
       - name: Diário Oficial de São Paulo
         continue-on-error: true
+        env:
+          SP_DIAS: ${{ github.event.inputs.dias || '3' }}
         run: node coletor/sp.mjs
       - name: Diários estaduais (AP, AM, ES, GO, MT)
         continue-on-error: true
+        env:
+          DIARIOS_DIAS: ${{ github.event.inputs.dias || '3' }}
         run: node coletor/diarios-estaduais.mjs
       - name: Consolidar fontes
         continue-on-error: true

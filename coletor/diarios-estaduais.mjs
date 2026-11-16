@@ -112,7 +112,25 @@ function orgaoDoAto(ato, cabecalho, uf) {
       return { orgao: `${camara ? "Câmara Municipal" : "Prefeitura"} de ${cidade[0]}`, cidade, abrangencia: "municipal" };
     }
   }
-  const cab = cabecalho.replace(/^[\d\s.,;:/-]+/, "").trim();
+  let cab = cabecalho.replace(/^[\d\s.,;:/•-]+/, "").trim();
+  // tira o cabeçalho da edição ("Nº 8.774 Terça-Feira, 3 de Novembro de 2026 Governo do Estado do Amapá")
+  cab = cab.replace(/^.*\b\d{4}\b\s*/s, (m) => (/(feira|s[áa]bado|domingo|edi[çc][ãa]o|n[ºo°]\s*\d)/i.test(m) ? "" : m));
+  cab = cab.replace(/^governo do estado d[eoa] [\p{L} ]+?\s+(?=(secretaria|pol[íi]cia|corpo|instituto|departamento|ag[êe]ncia|funda[çc][ãa]o|companhia|junta|universidade|defensoria|procuradoria|controladoria)\b)/iu, "");
+  // começa pelo nome do concurso ("VII Concurso de Ingresso ... da Defensoria Pública ..."): fica só o órgão
+  const doConcurso = cab.match(/concurso[^]*?\b(d[ao]s?)\s+((defensoria|tribunal|minist[ée]rio|pol[íi]cia|procuradoria|assembleia|secretaria|prefeitura|c[âa]mara|universidade|instituto)[^,.;]*)$/i);
+  if (doConcurso) cab = doConcurso[2];
+  // nome repetido ("Banco X - Banestes Banco X - Banestes")
+  const metade = Math.floor(cab.length / 2);
+  if (cab.length > 20 && norm(cab.slice(0, metade)).replace(/\W/g, "") === norm(cab.slice(metade)).replace(/\W/g, "")) cab = cab.slice(0, metade).trim();
+  const palavras = cab.split(" ");
+  for (let k = Math.floor(palavras.length / 2); k >= 3; k--) {
+    const a = norm(palavras.slice(0, k).join(" ")).replace(/[^a-z0-9]/g, "");
+    const b = norm(palavras.slice(k, 2 * k).join(" ")).replace(/[^a-z0-9]/g, "");
+    if (a && a === b) {
+      cab = palavras.slice(0, k).join(" ");
+      break;
+    }
+  }
   if (cab.length >= 4 && cab.length <= 140 && !/^(vitoria|goiania|cuiaba|macapa|manaus)\b/i.test(cab)) {
     return { orgao: titulo(cab), cidade: null, abrangencia: "estadual" };
   }
@@ -161,7 +179,8 @@ async function main() {
           const o = orgaoDoAto(ato, cabecalho, d.uf);
           if (!o.orgao) continue; // sem órgão identificável: melhor não publicar
           aceitos++;
-          const id = `${d.uf.toLowerCase()}:${src.diario_id}-${src.pagina}-${norm(o.orgao).slice(0, 30).replace(/\s+/g, "-")}`;
+          // mesmo edital em várias páginas do mesmo dia = um item só
+          const id = `${d.uf.toLowerCase()}:${src.data ?? src.diario_id}-${norm(o.orgao).replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`;
           if (porId.has(id)) {
             porId.get(id).visto_em = new Date().toISOString();
             continue;

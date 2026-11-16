@@ -30,6 +30,12 @@ jobs:
       - name: PNCP (bancas contratadas)
         continue-on-error: true
         run: node coletor/pncp.mjs
+      - name: Instituto AOCP
+        continue-on-error: true
+        run: node coletor/aocp.mjs
+      - name: Consolidar fontes
+        continue-on-error: true
+        run: node coletor/consolidar.mjs
       - name: Salvar resultado
         run: |
           for f in concursos.json status-querido.json; do [ -f "$f" ] && git add "$f"; done

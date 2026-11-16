@@ -17,9 +17,12 @@ const ARQUIVO = new URL("../concursos.json", import.meta.url);
 const UA = "LumenPlanRadar/1.0 (+https://github.com/WSkywalker/lumen-radar-dados)";
 const MUNICIPIOS_URL = "https://study-zen-planner-53.lovable.app/municipios.json";
 const DIAS = 2; // janela de publicação (o coletor roda 2x/dia; sobra margem)
-const MAX_PAGINAS = 80;
+// varredura retroativa: PNCP_INICIO e PNCP_FIM no formato AAAAMMDD
+const INICIO = process.env.PNCP_INICIO ?? null;
+const FIM = process.env.PNCP_FIM ?? null;
+const MAX_PAGINAS = Number(process.env.PNCP_MAX_PAGINAS ?? 80);
 const PAUSA_MS = 800;
-const VALIDADE_DIAS = 240; // depois disso, sem edital, o "banca contratada" sai da lista
+const VALIDADE_DIAS = 180; // depois disso, sem edital, o "banca contratada" sai da lista
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, "");
@@ -160,8 +163,10 @@ async function main() {
     MUNIS = [];
   }
 
-  const fim = new Date();
-  const ini = new Date(Date.now() - DIAS * 86_400_000);
+  const fim = FIM ? new Date(`${FIM.slice(0, 4)}-${FIM.slice(4, 6)}-${FIM.slice(6, 8)}T12:00:00Z`) : new Date();
+  const ini = INICIO
+    ? new Date(`${INICIO.slice(0, 4)}-${INICIO.slice(4, 6)}-${INICIO.slice(6, 8)}T12:00:00Z`)
+    : new Date(Date.now() - DIAS * 86_400_000);
   let paginas = 0, lidos = 0, aceitos = 0, novos = 0;
 
   for (let pagina = 1; pagina <= MAX_PAGINAS; pagina++) {

@@ -1,0 +1,51 @@
+name: Varredura retroativa do PNCP
+
+# Execução manual (uma vez): busca contratos de banca dos últimos meses.
+on:
+  workflow_dispatch:
+    inputs:
+      meses:
+        description: "Quantos meses para trás (1 a 6)"
+        required: false
+        default: "6"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coletar
+  cancel-in-progress: false
+
+jobs:
+  varrer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Varrer mês a mês
+        env:
+          MESES: ${{ github.event.inputs.meses }}
+          PNCP_MAX_PAGINAS: "400"
+        run: |
+          N=${MESES:-6}
+          [ "$N" -gt 6 ] && N=6
+          for i in $(seq "$N" -1 1); do
+            INI=$(date -u -d "$(date -u +%Y-%m-01) -$i month" +%Y%m%d)
+            FIM=$(date -u -d "$(date -u +%Y-%m-01) -$((i-1)) month -1 day" +%Y%m%d)
+            echo "== $INI a $FIM"
+            PNCP_INICIO=$INI PNCP_FIM=$FIM node coletor/pncp.mjs || echo "falhou $INI"
+          done
+          PNCP_INICIO=$(date -u +%Y-%m-01 | tr -d -) node coletor/pncp.mjs || true
+          node coletor/consolidar.mjs
+      - name: Salvar resultado
+        run: |
+          git add concursos.json
+          if git diff --cached --quiet; then echo "Sem mudanças."; exit 0; fi
+          git config user.name "radar-coletor"
+          git config user.email "radar-coletor@users.noreply.github.com"
+          git commit -m "Varredura retroativa do PNCP"
+          git pull --rebase -X theirs || true
+          git push

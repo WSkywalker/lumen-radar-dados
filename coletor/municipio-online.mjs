@@ -136,12 +136,18 @@ async function main() {
   }
 
   const resumo = { cidades: 0, edicoes: 0, editais: 0, novos: 0, erros: 0 };
-  for (const s of CIDADES) {
+  // várias cidades ao mesmo tempo (cada uma segue com sua pausa), para caber no tempo do GitHub
+  const PARALELO = Number(process.env.MO_PARALELO ?? 6);
+  const fila = [...CIDADES];
+  async function trabalhador() {
+    while (fila.length) await porCidade(fila.shift());
+  }
+  async function porCidade(s) {
     const pagina = await baixar(`${BASE}/se/prefeitura/${s}/cidadao/diariooficial`);
     await sleep(PAUSA_MS);
     if (!pagina) {
       resumo.erros++;
-      continue;
+      return;
     }
     resumo.cidades++;
     const mun = MUNIS.find((m) => slug(m[0]) === s);
@@ -176,6 +182,7 @@ async function main() {
       }
       for (const ato of editais(texto)) {
         resumo.editais++;
+        console.log(`  - ${s} ${ed.data}: ${norm(ato.slice(0, 160)).replace(/\s+/g, " ")}`);
         const numEdital = (ato.match(/edital[^0-9]{0,30}(\d{1,4}\s*\/\s*\d{2,4})/i)?.[1] ?? ed.numero).replace(/\s+/g, "");
         const id = `mo:${s}-${numEdital.replace(/\//g, "-")}`;
         if (porId.has(id)) {
@@ -221,6 +228,7 @@ async function main() {
       }
     }
   }
+  await Promise.all(Array.from({ length: PARALELO }, trabalhador));
 
   // situação pelas datas; tira o que já passou
   const hoje = new Date().toISOString().slice(0, 10);

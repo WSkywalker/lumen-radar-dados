@@ -60,8 +60,9 @@ function ehConcursoPublico(item) {
   const texto = norm(`${item.nome} ${item.chamada}`);
   if (/processo seletivo|selecao|residencia|vestibular|estagi/.test(tipo)) return false;
   if (/concurso/.test(tipo)) return !/processo seletivo simplificado/.test(texto);
-  // tipo em branco: decide pelo texto
-  return /concurso publico/.test(texto) && !/processo seletivo/.test(texto);
+  // tipo em branco: aceita edital/concurso que não seja processo seletivo
+  if (/processo seletivo|selecao simplificada|residencia|vestibular|estagi|bolsista/.test(texto)) return false;
+  return /concurso publico|edital de abertura|concurso n/.test(texto);
 }
 
 /* ------------------------------------------------------------------ */
@@ -80,6 +81,18 @@ function uf(texto) {
   for (const [sigla, nome] of Object.entries(UF_NOMES).sort((a, b) => b[1].length - a[1].length)) {
     if (new RegExp(`\\b(do|da|de) (estado d[eoa] )?${norm(nome)}\\b`).test(t)) return sigla;
   }
+  const GENTILICOS = {
+    catarinense: "SC", paulista: "SP", mineira: "MG", mineiro: "MG", gaucha: "RS", gaucho: "RS", fluminense: "RJ",
+    baiana: "BA", baiano: "BA", paranaense: "PR", pernambucana: "PE", pernambucano: "PE", cearense: "CE",
+    goiana: "GO", goiano: "GO", capixaba: "ES", paraense: "PA", amazonense: "AM", potiguar: "RN", sergipana: "SE",
+    alagoana: "AL", piauiense: "PI", maranhense: "MA", tocantinense: "TO", rondoniense: "RO", acreana: "AC",
+    amapaense: "AP", roraimense: "RR", "sul mato grossense": "MS", "mato grossense": "MT", paraibana: "PB",
+  };
+  for (const [g, sg] of Object.entries(GENTILICOS).sort((a, b) => b[0].length - a[0].length)) {
+    if (new RegExp(`\\b${g}\\b`).test(t.replace(/-/g, " "))) return sg;
+  }
+  const barra = String(texto).match(/\/([A-Z]{2})\b/i);
+  if (barra && UF_NOMES[barra[1].toUpperCase()]) return barra[1].toUpperCase();
   // siglas no nome: "PMPE", "CBMERJ", "TJ-SP", "- BA"
   const m = String(texto).match(/\b(?:PM|PC|CBM|CBMER|TJ|MP|DPE|SEFAZ|SEAP|PCI)[- ]?([A-Z]{2})\b/) ?? String(texto).match(/[-–]\s*([A-Z]{2})\s*$/);
   if (m && UF_NOMES[m[1]]) return m[1];
@@ -169,7 +182,7 @@ async function main() {
 
       const texto = `${it.nome} ${it.chamada ?? ""} ${det?.chamada ?? ""}`;
       const sigla = uf(texto);
-      const municipal = /prefeitura|camara municipal|municipio|servidor municipal|\bsemae\b|\bipsm\b/i.test(norm(it.nome));
+      const municipal = /prefeitura|camara municipal|municipio|servidor municipal|guarda municipal|saneamento municipal|\bsemae\b|\bipsm\b|\bgmc\b/i.test(norm(it.nome));
       const mun = municipal ? cidade(`${it.nome} ${det?.chamada ?? ""}`, sigla) : null;
       const anterior = porId.get(id);
       porId.set(id, {

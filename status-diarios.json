@@ -1,5 +1,5 @@
 {
- "testado_em": "2026-11-16T13:07:07.873Z",
+ "testado_em": "2026-11-16T13:10:59.436Z",
  "diarios": {
   "AC": {
    "url": "https://www.diario.ac.gov.br/",
@@ -232,7 +232,7 @@
    "final": "http://diariooficial.rn.gov.br/",
    "status": 404,
    "erro": null,
-   "robots": "sem robots (404)",
+   "robots": "sem robots (0)",
    "tem_busca": false,
    "fala_pdf": false,
    "api_ou_json": false,

@@ -1,9 +1,39 @@
 {
  "DOE-SE (IOSE)": {
-  "erro": "ENOTFOUND"
+  "status": 403,
+  "final": "https://iose.se.gov.br/",
+  "titulo": "403 Forbidden",
+  "busca": false,
+  "api": [],
+  "links_diario": [],
+  "robots": "sem robots (403)"
+ },
+ "DOE-SE http": {
+  "status": 403,
+  "final": "https://iose.se.gov.br/",
+  "titulo": "403 Forbidden",
+  "busca": false,
+  "api": [],
+  "links_diario": [],
+  "robots": "sem robots (403)"
  },
  "DOE-SE busca": {
-  "erro": "ENOTFOUND"
+  "status": 403,
+  "final": "https://iose.se.gov.br/buscanova/",
+  "titulo": "403 Forbidden",
+  "busca": false,
+  "api": [],
+  "links_diario": [],
+  "robots": "sem robots (403)"
+ },
+ "DOE-SE portal": {
+  "status": 403,
+  "final": "https://iose.se.gov.br/portal/visualizacoes/diario_oficial",
+  "titulo": "403 Forbidden",
+  "busca": false,
+  "api": [],
+  "links_diario": [],
+  "robots": "sem robots (403)"
  },
  "Município Online (SE)": {
   "status": 200,

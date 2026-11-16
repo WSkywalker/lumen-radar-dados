@@ -80,6 +80,25 @@ function origem(it, conteudo) {
     }
   }
   if (/ministerio publico/.test(norm(niveis.join(" "))) && !/ministerio publico/.test(norm(orgao))) orgao = "Ministério Público do Estado de São Paulo";
+  // unidade interna (faculdade, campus, reitoria, hospital...) ganha o nome da instituição-mãe
+  const MAE = /^(universidade|secretaria d|fundacao|autarquia|faculdade de medicina de)/;
+  const SIGLA = { "universidade estadual paulista": "Unesp", "universidade estadual de campinas": "Unicamp", "universidade de sao paulo": "USP" };
+  const idx = niveis.indexOf(orgao);
+  if (idx > 0 && !MAE.test(norm(orgao))) {
+    for (let k = idx - 1; k >= 0; k--) {
+      const nk = norm(niveis[k]);
+      if (!MAE.test(nk)) continue;
+      // secretaria só para unidades que sozinhas não dizem nada (Grupo de Resgate, Subsecretaria...)
+      if (!/^universidade/.test(nk) && !/^(grupo|subsecretaria|centro de vigilancia|campus|reitoria)/.test(norm(orgao))) break;
+      const mae = SIGLA[nk] ?? niveis[k];
+      if (/^reitoria$/.test(norm(orgao))) orgao = mae;
+      else if (!norm(orgao).includes(norm(mae))) {
+        const campus = niveis.slice(k + 1, idx).find((n) => /^campus/i.test(n));
+        orgao = `${orgao} — ${mae}${campus ? ` (${campus.replace(/^campus d[eoa]s? /i, "")})` : ""}`;
+      }
+      break;
+    }
+  }
   if (/^(policia (militar|civil|penal|tecnico-cientifica)|corpo de bombeiros|defensoria publica|tribunal de justica)( do estado)?$/.test(norm(orgao))) orgao = `${orgao.replace(/ do estado$/i, "")} do Estado de São Paulo`;
   // concursos de autarquias ligadas a um município (ex.: Hospital de Ribeirão Preto) continuam estaduais
   void conteudo;

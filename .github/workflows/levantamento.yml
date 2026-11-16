@@ -16,9 +16,10 @@ jobs:
         with:
           node-version: 20
       - run: node ferramentas/levantamento-diarios.mjs
+      - run: node ferramentas/levantamento-se.mjs
       - run: |
           git config user.name "radar-coletor"
           git config user.email "radar-coletor@users.noreply.github.com"
-          git add status-diarios.json
+          git add status-diarios.json status-se.json
           git commit -m "Levantamento dos diários estaduais" || exit 0
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done

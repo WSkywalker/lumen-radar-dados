@@ -15,7 +15,7 @@ on:
 jobs:
   testar:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,6 +27,7 @@ jobs:
         env:
           SP_DIAS: ${{ github.event.inputs.dias }}
           DIARIOS_DIAS: ${{ github.event.inputs.dias }}
+          MO_DIAS: ${{ github.event.inputs.dias }}
         run: node "coletor/${{ github.event.inputs.coletor }}"
       - name: Mostrar o que entrou
         run: |

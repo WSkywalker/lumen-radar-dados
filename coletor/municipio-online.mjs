@@ -28,14 +28,21 @@ const CIDADES = [
   "telha", "tobiasbarreto", "tomardogeru", "umbauba",
 ];
 const PAUSA_MS = 1200;
+// dias para trás (1 = só a edição mais recente). Para recuperar o passado: MO_DIAS=15
+const DIAS = Math.min(Number(process.env.MO_DIAS ?? 1), 31);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const slug = (n) => n.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
-async function baixar(url, binario = false) {
+async function baixar(url, binario = false, corpo = null) {
   for (let t = 1; t <= 3; t++) {
     try {
-      const r = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(45000) });
+      const r = await fetch(url, {
+        method: corpo ? "POST" : "GET",
+        body: corpo ?? undefined,
+        headers: { "User-Agent": UA, ...(corpo ? { "Content-Type": "application/x-www-form-urlencoded" } : {}) },
+        signal: AbortSignal.timeout(45000),
+      });
       if (r.ok) return binario ? new Uint8Array(await r.arrayBuffer()) : await r.text();
       if (r.status === 404) return null;
     } catch {
@@ -72,6 +79,25 @@ async function textoDoPdf(bytes) {
 // abertura de concurso público (no título ou no começo do ato)
 const SINAL = /(torna (publica|publico)[^.]{0,80}abertura|abertura d[ae]s? inscric|abertura do concurso|edital de abertura|estarao abertas as inscric|ficam abertas as inscric|torna publica a realizacao de concurso|realizacao de concurso publico para (o )?provimento)/;
 const FORA = /(processo seletivo|selecao simplificada|convoca|resultado|homolog|classifica|retifica|rerratifica|prorroga|nomea|posse|gabarito|recurso|deferi|errata|cancelamento|anulacao|suspensao|estagi|residencia|credenciamento|chamamento)/;
+
+/** Edições listadas na página (data escolhida + "<option value=CODIGO.pdf>1487/2026"). */
+function edicoesDaPagina(html) {
+  const sel = html.match(/name="ctl00\$body\$ddlEdicao"[\s\S]*?<\/select>/)?.[0] ?? "";
+  const dataEd = html.match(/name="ctl00\$body\$txtDataEdicao"[^>]*value="(\d{2})\/(\d{2})\/(\d{4})"/);
+  const data = dataEd ? `${dataEd[3]}-${dataEd[2]}-${dataEd[1]}` : new Date().toISOString().slice(0, 10);
+  return [...sel.matchAll(/<option[^>]*value="([^"]+)\.pdf"[^>]*>([^<]*)</g)].slice(0, 3).map((x) => ({ codigo: x[1], numero: x[2].trim(), data }));
+}
+
+/** Campos ocultos do formulário ASP.NET (__VIEWSTATE etc.). */
+function camposOcultos(html) {
+  const p = new URLSearchParams();
+  for (const m of html.matchAll(/<input[^>]*type="hidden"[^>]*>/g)) {
+    const nome = m[0].match(/name="([^"]+)"/)?.[1];
+    const valor = m[0].match(/value="([^"]*)"/)?.[1] ?? "";
+    if (nome) p.set(nome, valor.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">"));
+  }
+  return p;
+}
 
 /** Atos de abertura dentro do texto do diário: começam em "EDITAL" e falam de concurso público. */
 function editais(texto) {
@@ -120,12 +146,22 @@ async function main() {
     resumo.cidades++;
     const mun = MUNIS.find((m) => slug(m[0]) === s);
     const nomeCidade = mun?.[0] ?? s;
-    // edições do dia: <option value="CODIGO.pdf">1487/2026</option>
-    const sel = pagina.match(/name="ctl00\$body\$ddlEdicao"[\s\S]*?<\/select>/)?.[0] ?? "";
-    const edicoes = [...sel.matchAll(/<option[^>]*value="([^"]+)\.pdf"[^>]*>([^<]*)</g)].map((x) => ({ codigo: x[1], numero: x[2].trim() }));
-    const dataEd = pagina.match(/name="ctl00\$body\$txtDataEdicao"[^>]*value="(\d{2})\/(\d{2})\/(\d{4})"/);
-    const dataIso = dataEd ? `${dataEd[3]}-${dataEd[2]}-${dataEd[1]}` : new Date().toISOString().slice(0, 10);
-    for (const ed of edicoes.slice(0, 3)) {
+    const lote = edicoesDaPagina(pagina);
+    // dias anteriores: escolhe a data no formulário da própria página
+    for (let d = 1; d < DIAS; d++) {
+      const dia = new Date(Date.now() - d * 86_400_000);
+      const br = `${String(dia.getUTCDate()).padStart(2, "0")}/${String(dia.getUTCMonth() + 1).padStart(2, "0")}/${dia.getUTCFullYear()}`;
+      const campos = camposOcultos(pagina);
+      campos.set("__EVENTTARGET", "ctl00$body$txtDataEdicao");
+      campos.set("__EVENTARGUMENT", "");
+      campos.set("ctl00$body$rbPesquisa", "rbPesquisaData");
+      campos.set("ctl00$body$txtDataEdicao", br);
+      const outra = await baixar(`${BASE}/se/prefeitura/${s}/cidadao/diariooficial`, false, campos.toString());
+      await sleep(PAUSA_MS);
+      if (outra) for (const e of edicoesDaPagina(outra)) if (!lote.some((x) => x.codigo === e.codigo)) lote.push(e);
+    }
+    for (const ed of lote) {
+      const dataIso = ed.data;
       const pdfUrl = `${BASE}/se/prefeitura/${s}/cidadao/diariooficial/diario?n=diario.pdf&l=${encodeURIComponent(ed.codigo)}`;
       const bytes = await baixar(pdfUrl, true);
       await sleep(PAUSA_MS);

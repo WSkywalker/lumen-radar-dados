@@ -21,7 +21,7 @@ concurrency:
 jobs:
   coletar:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -50,6 +50,8 @@ jobs:
         run: node coletor/diarios-estaduais.mjs
       - name: Diários municipais de Sergipe (Município Online)
         continue-on-error: true
+        env:
+          MO_DIAS: ${{ github.event.inputs.dias || '1' }}
         run: |
           npm install --no-save --no-audit --no-fund pdfjs-dist@4 >/dev/null
           node coletor/municipio-online.mjs

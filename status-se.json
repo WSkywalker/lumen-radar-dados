@@ -1,0 +1,38 @@
+{
+ "DOE-SE (IOSE)": {
+  "erro": "ENOTFOUND"
+ },
+ "DOE-SE busca": {
+  "erro": "ENOTFOUND"
+ },
+ "Município Online (SE)": {
+  "status": 200,
+  "final": "https://www.municipioonline.com.br/se/prefeitura/simaodias",
+  "titulo": "Município Online",
+  "busca": false,
+  "api": [],
+  "links_diario": [],
+  "robots": "sem robots (404)"
+ },
+ "DOM Aracaju": {
+  "status": 200,
+  "final": "https://www.aracaju.se.gov.br/",
+  "titulo": "Prefeitura de Aracaju",
+  "busca": false,
+  "api": [],
+  "links_diario": [],
+  "robots": "sem robots (404)"
+ },
+ "Querido Diário Aracaju": {
+  "status": 522,
+  "final": "https://api.queridodiario.org.br/gazettes?territory_ids=2800308&size=1",
+  "titulo": "queridodiario.org.br | 522: Connection timed out",
+  "busca": false,
+  "api": [],
+  "links_diario": [
+   "href=\"https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_522&utm_campaign=api.queridodiario.org.br\"",
+   "href=\"https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_522&#38;utm_campaign=api.queridodiario.org.br\""
+  ],
+  "erro": "TimeoutError"
+ }
+}

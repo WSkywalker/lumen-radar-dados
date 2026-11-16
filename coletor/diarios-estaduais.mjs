@@ -63,12 +63,27 @@ function atosDeAbertura(pagina) {
   const t = String(pagina).replace(/-\s*\n\s*/g, "");
   const partes = t.split(/protocolo\s*(?:n[ºo°.]*\s*)?\d{5,}/i);
   const out = [];
-  for (const parte of partes) {
-    const n = norm(parte);
+  for (const bruto of partes) {
+    // espaços já colapsados: a versão sem acento tem o mesmo tamanho do original
+    const parte = bruto.normalize("NFC").replace(/\s+/g, " ");
+    const n = parte.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     if (!/concurso publico/.test(n) || !SINAL_ABERTURA.test(n)) continue;
     const i = n.search(INICIO_ATO);
-    const cabecalho = i > 3 ? parte.slice(0, Math.min(i + 5, 160)).replace(/\s+/g, " ").trim() : "";
-    out.push({ ato: parte.slice(0, 12000), cabecalho: cabecalho.replace(/\s+(edital|aviso|portaria|decreto|resolu\S*|instru\S*|extrato|ato|termo|comunicado|errata|despacho)\b.*$/i, "").trim() });
+    if (i < 0) continue;
+    // o próprio ato (título + começo) precisa falar da abertura do concurso público,
+    // não basta a página citar um concurso em outro ato
+    const zona = n.slice(i, i + 700);
+    if (!/concurso publico/.test(zona) || !SINAL_ABERTURA.test(zona)) continue;
+    if (!/^(edital|aviso)/.test(n.slice(i, i + 10))) continue;
+    const cabecalho = i > 3 ? parte.slice(0, i).replace(/\s+/g, " ").trim().slice(-140) : "";
+    // cabeçalho de órgão vem em MAIÚSCULAS; texto corrido é resto de outro ato (começo da página)
+    const letras = cabecalho.replace(/[^\p{L}]/gu, "");
+    const maiusculas = letras.replace(/[^\p{Lu}]/gu, "").length;
+    if (letras.length < 4 || maiusculas / letras.length < 0.6) continue;
+    out.push({
+      ato: parte.slice(i, i + 12000),
+      cabecalho: cabecalho.replace(/\b(executivo|diario oficial dos poderes do estado|di[áa]rio oficial)\b/gi, " ").replace(/\s+/g, " ").trim(),
+    });
   }
   return out;
 }

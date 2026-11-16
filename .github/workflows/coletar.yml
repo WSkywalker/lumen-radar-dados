@@ -47,4 +47,5 @@ jobs:
           git config user.email "radar-coletor@users.noreply.github.com"
           git rm -q --cached status-pncp.json 2>/dev/null || true
           git commit -m "Atualiza concursos ($(date -u +%Y-%m-%dT%H:%MZ))"
-          git push
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 10; done
+          exit 1

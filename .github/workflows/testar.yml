@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Instalar leitor de PDF
+        run: npm install --no-save --no-audit --no-fund pdfjs-dist@4 >/dev/null
       - name: Rodar
         env:
           SP_DIAS: ${{ github.event.inputs.dias }}
@@ -28,4 +30,4 @@ jobs:
         run: node "coletor/${{ github.event.inputs.coletor }}"
       - name: Mostrar o que entrou
         run: |
-          node -e 'const j=require("./concursos.json"); const pref={"sp.mjs":"sp:","diarios-estaduais.mjs":/^(es|ap|am|go|mt):/,"aocp.mjs":"aocp:"}[process.argv[1]]; for (const i of j.itens.filter(i=> typeof pref==="string" ? i.id.startsWith(pref) : pref.test(i.id))) console.log("-", [i.situacao, i.uf, i.cidade, i.orgao, i.cargo.slice(0,50), i.vagas, i.banca, i.inscricoes_inicio, i.inscricoes_fim, i.prova_data].join(" | "))' "${{ github.event.inputs.coletor }}"
+          node -e 'const j=require("./concursos.json"); const pref={"sp.mjs":"sp:","diarios-estaduais.mjs":/^(es|ap|am|go|mt):/,"aocp.mjs":"aocp:","municipio-online.mjs":"mo:"}[process.argv[1]]; for (const i of j.itens.filter(i=> typeof pref==="string" ? i.id.startsWith(pref) : pref.test(i.id))) console.log("-", [i.situacao, i.uf, i.cidade, i.orgao, i.cargo.slice(0,50), i.vagas, i.banca, i.inscricoes_inicio, i.inscricoes_fim, i.prova_data].join(" | "))' "${{ github.event.inputs.coletor }}"

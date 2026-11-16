@@ -48,6 +48,11 @@ jobs:
         env:
           DIARIOS_DIAS: ${{ github.event.inputs.dias || '3' }}
         run: node coletor/diarios-estaduais.mjs
+      - name: Diários municipais de Sergipe (Município Online)
+        continue-on-error: true
+        run: |
+          npm install --no-save --no-audit --no-fund pdfjs-dist@4 >/dev/null
+          node coletor/municipio-online.mjs
       - name: Consolidar fontes
         continue-on-error: true
         run: node coletor/consolidar.mjs
@@ -60,7 +65,7 @@ jobs:
           for i in 1 2 3; do
             git fetch -q origin main
             git reset -q --hard origin/main
-            node ferramentas/mesclar.mjs /tmp/nosso.json concursos.json "dou:,pncp:,aocp:,sp:,es:,ap:,am:,go:,mt:"
+            node ferramentas/mesclar.mjs /tmp/nosso.json concursos.json "dou:,pncp:,aocp:,sp:,es:,ap:,am:,go:,mt:,mo:"
             node coletor/consolidar.mjs || true
             cp /tmp/status-querido.json status-querido.json 2>/dev/null || true
             git add concursos.json status-querido.json 2>/dev/null || git add concursos.json

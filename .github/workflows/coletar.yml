@@ -33,6 +33,12 @@ jobs:
       - name: Instituto AOCP
         continue-on-error: true
         run: node coletor/aocp.mjs
+      - name: Diário Oficial de São Paulo
+        continue-on-error: true
+        run: node coletor/sp.mjs
+      - name: Diários estaduais (AP, AM, ES, GO, MT)
+        continue-on-error: true
+        run: node coletor/diarios-estaduais.mjs
       - name: Consolidar fontes
         continue-on-error: true
         run: node coletor/consolidar.mjs

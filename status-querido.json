@@ -1,6 +1,6 @@
 [
  {
-  "testado_em": "2026-11-18T02:56:37.793Z",
+  "testado_em": "2026-11-18T18:07:53.296Z",
   "url": "https://api.queridodiario.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "status": 200,
   "total": 310,
@@ -29,7 +29,7 @@
   ]
  },
  {
-  "testado_em": "2026-11-18T02:56:42.349Z",
+  "testado_em": "2026-11-18T18:08:14.833Z",
   "url": "https://queridodiario.org.br/api/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "status": 200,
   "total": 310,
@@ -58,37 +58,14 @@
   ]
  },
  {
-  "testado_em": "2026-11-18T02:56:43.239Z",
+  "testado_em": "2026-11-18T18:09:50.239Z",
   "url": "https://api.queridodiario.ok.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "erro": "ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE"
  },
  {
-  "testado_em": "2026-11-18T02:56:43.425Z",
+  "testado_em": "2026-11-18T18:09:50.435Z",
   "url": "https://queridodiario.ok.org.br/api/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
-  "status": 200,
-  "total": 310,
-  "exemplos": [
-   {
-    "cidade": "Itu",
-    "uf": "SP",
-    "data": "2026-11-09",
-    "url": "https://data.queridodiario.ok.org.br/3523909/2026-11-09/af96abbad35cec49d0559ed6e65fda92fa5622ce.pdf",
-    "trecho": "ITU\n\nCOMPANHIA ITUANA DE SANEAMENTO - CIS  \nCONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\nConcurso Público de Provas - Edital Nº 001/2026                         Companhia Ituana de Saneamento - CIS - Página 1 \n\n \n\nEDITAL DE ABERTURA DO CONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\n \n\nO Dire"
-   },
-   {
-    "cidade": "Mogi Guaçu",
-    "uf": "SP",
-    "data": "2026-11-14",
-    "url": "https://data.queridodiario.ok.org.br/3530706/2026-11-14/346097ee09f5435fd3ffd58e475f91ac1ecab7b5.pdf",
-    "trecho": "integridade.\n\n \nPREFEITURA MUNICIPAL DE MOGI GUAÇU \n\nCONCURSO PÚBLICO Nº 2/2026 \nEDITAL de ABERTURA de INSCRIÇÕES \n\n \n\n 1 \n\nA PREFEITURA MUNICIPAL DE MOGI GUAÇU, Estado de São Paulo, torna público o Edital de Abertura de Inscrições para o \nConcurso Público nº 2/2026 visando o provimento de empregos "
-   },
-   {
-    "cidade": "João Ramalho",
-    "uf": "SP",
-    "data": "2026-11-05",
-    "url": "https://data.queridodiario.ok.org.br/3525607/2026-11-05/ef72191df1d225cc86b10c6a7301f72b62b4ca3c.pdf",
-    "trecho": "Oficial assinado digitalmente conforme MP nº 2.200-2, de 2001, e Lei 14.063, de 2020, garantindo autenticidade, validade jurídica e integridade.\n\n \n\nCONCURSO PÚBLICO Nº 01/2026 \n\nEDITAL NORMATIVO DE ABERTURA DAS INSCRIÇÕES Nº 01/2026 – TERCEIRA \n\nRETIFICAÇÃO. \n\nA Câmara Municipal de João Ramalho, Es"
-   }
-  ]
+  "status": 503,
+  "corpo": "no available server\n"
  }
 ]

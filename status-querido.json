@@ -1,94 +1,25 @@
 [
  {
-  "testado_em": "2026-11-22T01:22:53.424Z",
+  "testado_em": "2026-11-22T17:12:18.245Z",
   "url": "https://api.queridodiario.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
-  "status": 200,
-  "total": 427,
-  "exemplos": [
-   {
-    "cidade": "Adolfo",
-    "uf": "SP",
-    "data": "2026-11-18",
-    "url": "https://data.queridodiario.ok.org.br/3500204/2026-11-18/8f69ba934c481474c9f960e9943cd3152db8185e.pdf",
-    "trecho": "assinado digitalmente conforme MP nº 2.200-2, de 2001, e Lei 14.063, de 2020, garantindo autenticidade, validade jurídica e integridade.\n\n \n\n  \n\nCONCURSO PÚBLICO Nº 01/2026 \n \n\nEDITAL DE ABERTURA DAS INSCRIÇÕES \n \nA PREFEITURA MUNICIPAL DE ADOLFO, Estado de São Paulo, por intermédio \ndo Prefeito Mun"
-   },
-   {
-    "cidade": "Ourinhos",
-    "uf": "SP",
-    "data": "2026-11-19",
-    "url": "https://data.queridodiario.ok.org.br/3534708/2026-11-19/8f16f69e624971dfe9888a74d9564bb28719a246.pdf",
-    "trecho": "NOMEAÇÃO – LXIII\n\nA Prefeitura Municipal de Ourinhos, conforme L/C Nº 474/06 e LC Nº 1.224/2026, NOMEIA os(as) candidatos(as) aprovados(as) no\nConcurso Público nº 01/2023, Homologado pelo Decreto nº.7.789 de 22 de setembro de 2023 para o cargo de PEDREIRO.\n\nConvocamos os(as) candidatos(as) abaixo ci"
-   },
-   {
-    "cidade": "Itu",
-    "uf": "SP",
-    "data": "2026-11-09",
-    "url": "https://data.queridodiario.ok.org.br/3523909/2026-11-09/af96abbad35cec49d0559ed6e65fda92fa5622ce.pdf",
-    "trecho": "ITU\n\nCOMPANHIA ITUANA DE SANEAMENTO - CIS  \nCONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\nConcurso Público de Provas - Edital Nº 001/2026                         Companhia Ituana de Saneamento - CIS - Página 1 \n\n \n\nEDITAL DE ABERTURA DO CONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\n \n\nO Dire"
-   }
-  ]
+  "status": 503,
+  "corpo": "no available server\n"
  },
  {
-  "testado_em": "2026-11-22T01:22:54.800Z",
+  "testado_em": "2026-11-22T17:12:18.830Z",
   "url": "https://queridodiario.org.br/api/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
-  "status": 200,
-  "total": 427,
-  "exemplos": [
-   {
-    "cidade": "Adolfo",
-    "uf": "SP",
-    "data": "2026-11-18",
-    "url": "https://data.queridodiario.ok.org.br/3500204/2026-11-18/8f69ba934c481474c9f960e9943cd3152db8185e.pdf",
-    "trecho": "assinado digitalmente conforme MP nº 2.200-2, de 2001, e Lei 14.063, de 2020, garantindo autenticidade, validade jurídica e integridade.\n\n \n\n  \n\nCONCURSO PÚBLICO Nº 01/2026 \n \n\nEDITAL DE ABERTURA DAS INSCRIÇÕES \n \nA PREFEITURA MUNICIPAL DE ADOLFO, Estado de São Paulo, por intermédio \ndo Prefeito Mun"
-   },
-   {
-    "cidade": "Ourinhos",
-    "uf": "SP",
-    "data": "2026-11-19",
-    "url": "https://data.queridodiario.ok.org.br/3534708/2026-11-19/8f16f69e624971dfe9888a74d9564bb28719a246.pdf",
-    "trecho": "NOMEAÇÃO – LXIII\n\nA Prefeitura Municipal de Ourinhos, conforme L/C Nº 474/06 e LC Nº 1.224/2026, NOMEIA os(as) candidatos(as) aprovados(as) no\nConcurso Público nº 01/2023, Homologado pelo Decreto nº.7.789 de 22 de setembro de 2023 para o cargo de PEDREIRO.\n\nConvocamos os(as) candidatos(as) abaixo ci"
-   },
-   {
-    "cidade": "Itu",
-    "uf": "SP",
-    "data": "2026-11-09",
-    "url": "https://data.queridodiario.ok.org.br/3523909/2026-11-09/af96abbad35cec49d0559ed6e65fda92fa5622ce.pdf",
-    "trecho": "ITU\n\nCOMPANHIA ITUANA DE SANEAMENTO - CIS  \nCONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\nConcurso Público de Provas - Edital Nº 001/2026                         Companhia Ituana de Saneamento - CIS - Página 1 \n\n \n\nEDITAL DE ABERTURA DO CONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\n \n\nO Dire"
-   }
-  ]
+  "status": 503,
+  "corpo": "no available server\n"
  },
  {
-  "testado_em": "2026-11-22T01:22:55.908Z",
+  "testado_em": "2026-11-22T17:12:19.461Z",
   "url": "https://api.queridodiario.ok.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "erro": "ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE"
  },
  {
-  "testado_em": "2026-11-22T01:22:56.097Z",
+  "testado_em": "2026-11-22T17:12:19.540Z",
   "url": "https://queridodiario.ok.org.br/api/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
-  "status": 200,
-  "total": 427,
-  "exemplos": [
-   {
-    "cidade": "Adolfo",
-    "uf": "SP",
-    "data": "2026-11-18",
-    "url": "https://data.queridodiario.ok.org.br/3500204/2026-11-18/8f69ba934c481474c9f960e9943cd3152db8185e.pdf",
-    "trecho": "assinado digitalmente conforme MP nº 2.200-2, de 2001, e Lei 14.063, de 2020, garantindo autenticidade, validade jurídica e integridade.\n\n \n\n  \n\nCONCURSO PÚBLICO Nº 01/2026 \n \n\nEDITAL DE ABERTURA DAS INSCRIÇÕES \n \nA PREFEITURA MUNICIPAL DE ADOLFO, Estado de São Paulo, por intermédio \ndo Prefeito Mun"
-   },
-   {
-    "cidade": "Ourinhos",
-    "uf": "SP",
-    "data": "2026-11-19",
-    "url": "https://data.queridodiario.ok.org.br/3534708/2026-11-19/8f16f69e624971dfe9888a74d9564bb28719a246.pdf",
-    "trecho": "NOMEAÇÃO – LXIII\n\nA Prefeitura Municipal de Ourinhos, conforme L/C Nº 474/06 e LC Nº 1.224/2026, NOMEIA os(as) candidatos(as) aprovados(as) no\nConcurso Público nº 01/2023, Homologado pelo Decreto nº.7.789 de 22 de setembro de 2023 para o cargo de PEDREIRO.\n\nConvocamos os(as) candidatos(as) abaixo ci"
-   },
-   {
-    "cidade": "Itu",
-    "uf": "SP",
-    "data": "2026-11-09",
-    "url": "https://data.queridodiario.ok.org.br/3523909/2026-11-09/af96abbad35cec49d0559ed6e65fda92fa5622ce.pdf",
-    "trecho": "ITU\n\nCOMPANHIA ITUANA DE SANEAMENTO - CIS  \nCONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\nConcurso Público de Provas - Edital Nº 001/2026                         Companhia Ituana de Saneamento - CIS - Página 1 \n\n \n\nEDITAL DE ABERTURA DO CONCURSO PÚBLICO DE PROVAS - EDITAL Nº 001/2026 \n\n \n\nO Dire"
-   }
-  ]
+  "status": 503,
+  "corpo": "no available server\n"
  }
 ]

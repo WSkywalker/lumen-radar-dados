@@ -192,6 +192,27 @@ function provaDoEdital(t) {
 const MODELOS = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"];
 let iaUsadas = 0;
 let iaCotaAcabou = false;
+/** "ok" | "invalida" | "sem-chave" | "sem-resposta" */
+let chaveStatus = CHAVE ? "sem-resposta" : "sem-chave";
+
+const avisar = (msg) => console.log(process.env.GITHUB_ACTIONS ? `::warning title=Chave do Gemini::${msg}` : `AVISO: ${msg}`);
+
+/** Confere a chave antes de usar (uma chamada simples, não gasta cota de geração). */
+async function testarChave() {
+  if (!CHAVE) return;
+  try {
+    const r = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=1", {
+      headers: { "x-goog-api-key": CHAVE },
+    });
+    if (r.ok) chaveStatus = "ok";
+    else if ([400, 401, 403].includes(r.status)) chaveStatus = "invalida";
+  } catch {
+    chaveStatus = "sem-resposta";
+  }
+  if (chaveStatus === "invalida")
+    avisar("chave do Gemini inválida: confira o segredo GEMINI_API_KEY (Settings > Secrets and variables > Actions). O robô seguiu só com as regras.");
+  if (chaveStatus === "sem-resposta") avisar("o Google não respondeu ao testar a chave do Gemini; tento de novo na próxima rodada.");
+}
 
 /** Texto do PDF com fonte embaralhada (letras trocadas): não dá para ler por regras. */
 export function ilegivel(texto) {
@@ -201,7 +222,7 @@ export function ilegivel(texto) {
 }
 
 async function iaEdital(texto, pdfBytes) {
-  if (!CHAVE || iaCotaAcabou || iaUsadas >= MAX_IA) return null;
+  if (chaveStatus !== "ok" || iaCotaAcabou || iaUsadas >= MAX_IA) return null;
   iaUsadas++;
   const prompt =
     "Você recebe o texto de um edital de concurso público brasileiro. Responda só com JSON. " +
@@ -251,6 +272,11 @@ async function iaEdital(texto, pdfBytes) {
         );
         if (r.status === 429) {
           iaCotaAcabou = true; // cota grátis do dia acabou: segue só com regras
+          return null;
+        }
+        if (r.status === 401 || r.status === 403) {
+          chaveStatus = "invalida";
+          avisar("chave do Gemini recusada pelo Google: confira o segredo GEMINI_API_KEY.");
           return null;
         }
         if (r.status === 404 || r.status === 400) break; // modelo indisponível: tenta o próximo
@@ -327,6 +353,7 @@ async function main() {
     cache = {};
   }
 
+  if (!SO_APLICAR) await testarChave();
   let lidos = 0;
   let porIa = 0;
   let aplicados = 0;
@@ -395,8 +422,24 @@ async function main() {
 
   await writeFile(ARQUIVO, JSON.stringify(base, null, 1) + "\n");
   await writeFile(CACHE, JSON.stringify(cache, null, 1) + "\n");
+  const ia = {
+    ok: "chave do Gemini OK",
+    invalida: "chave do Gemini INVÁLIDA",
+    "sem-chave": "IA desligada: sem GEMINI_API_KEY",
+    "sem-resposta": "Google não respondeu",
+  }[chaveStatus];
+  if (!SO_APLICAR) {
+    console.log(`IA: ${ia}${iaCotaAcabou ? " (cota grátis de hoje acabou)" : ""}`);
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      const { appendFile } = await import("node:fs/promises");
+      await appendFile(
+        process.env.GITHUB_STEP_SUMMARY,
+        `### Leitura dos editais\n- Editais lidos agora: ${lidos} (${porIa} com IA)\n- Concursos completados: ${aplicados}\n- IA: ${ia}${iaCotaAcabou ? " (cota grátis de hoje acabou)" : ""}\n`,
+      );
+    }
+  }
   console.log(
-    `editais: ${lidos} lidos agora (${porIa} com IA${CHAVE ? "" : "; IA desligada: sem GEMINI_API_KEY"}${iaCotaAcabou ? "; cota da IA acabou" : ""}); ${aplicados} concursos completados`,
+    `editais: ${lidos} lidos agora (${porIa} com IA; ${ia}${iaCotaAcabou ? "; cota da IA acabou" : ""}); ${aplicados} concursos completados`,
   );
 }
 

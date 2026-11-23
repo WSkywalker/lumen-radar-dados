@@ -32,13 +32,25 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /* baixar e extrair texto                                               */
 /* ------------------------------------------------------------------ */
 
-async function baixar(url) {
+/** Páginas que só funcionam com JavaScript: busca o texto pela API do próprio diário. */
+function enderecoDeLeitura(url) {
+  const sp = url.match(/^https:\/\/doe\.sp\.gov\.br\/(.+)$/);
+  if (sp) return { url: `https://do-api-web-search.doe.sp.gov.br/v2/publications/${sp[1]}`, json: "content" };
+  return { url, json: null };
+}
+
+async function baixar(original) {
+  const { url, json } = enderecoDeLeitura(original);
   const ctl = new AbortController();
   const t = setTimeout(() => ctl.abort(), 60_000);
   try {
     const r = await fetch(url, { headers: { "User-Agent": UA }, signal: ctl.signal, redirect: "follow" });
     if (!r.ok) return null;
     const tipo = r.headers.get("content-type") ?? "";
+    if (json) {
+      const j = await r.json();
+      return { pdf: false, buf: new TextEncoder().encode(String(j?.[json] ?? "")) };
+    }
     const buf = new Uint8Array(await r.arrayBuffer());
     if (buf.byteLength > MAX_BYTES) return null;
     const pdf = /pdf/i.test(tipo) || (buf[0] === 0x25 && buf[1] === 0x50 && buf[2] === 0x44 && buf[3] === 0x46);
@@ -325,9 +337,10 @@ async function main() {
         .filter((i) => {
           const c = cache[i.edital_url];
           if (!c) return true;
-          // releitura: só se nada foi achado, no máx. 3 tentativas, uma por semana
+          // releitura: só se nada foi achado, no máx. 3 tentativas
           const vazio = !c.vagas && !c.cargos?.length;
-          return vazio && (c.tentativas ?? 1) < 3 && Date.now() - new Date(c.em).getTime() > 7 * DIA;
+          const espera = c.erro ? 1 : 7; // erro de download: tenta de novo no dia seguinte
+          return vazio && (c.tentativas ?? 1) < 3 && Date.now() - new Date(c.em).getTime() > espera * DIA;
         })
         .sort((a, b) => Number(!!a.vagas) - Number(!!b.vagas))
         .slice(0, MAX_LEITURAS);

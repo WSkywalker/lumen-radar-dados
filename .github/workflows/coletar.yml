@@ -55,6 +55,14 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund pdfjs-dist@4 >/dev/null
           node coletor/municipio-online.mjs
+      - name: Ler editais (vagas, cargos e data da prova)
+        continue-on-error: true
+        env:
+          # opcional: chave grátis do Gemini guardada em Settings > Secrets and variables > Actions
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          npm install --no-save --no-audit --no-fund pdfjs-dist@4 >/dev/null
+          node coletor/editais.mjs
       - name: Consolidar fontes
         continue-on-error: true
         run: node coletor/consolidar.mjs
@@ -64,13 +72,18 @@ jobs:
           git config user.email "radar-coletor@users.noreply.github.com"
           cp concursos.json /tmp/nosso.json
           cp status-querido.json /tmp/status-querido.json 2>/dev/null || true
+          cp editais-lidos.json /tmp/editais-lidos.json 2>/dev/null || true
           for i in 1 2 3; do
             git fetch -q origin main
             git reset -q --hard origin/main
             node ferramentas/mesclar.mjs /tmp/nosso.json concursos.json "dou:,pncp:,aocp:,sp:,es:,ap:,am:,go:,mt:,mo:"
             node coletor/consolidar.mjs || true
             cp /tmp/status-querido.json status-querido.json 2>/dev/null || true
-            git add concursos.json status-querido.json 2>/dev/null || git add concursos.json
+            cp /tmp/editais-lidos.json editais-lidos.json 2>/dev/null || true
+            node coletor/editais.mjs --aplicar || true
+            git add concursos.json
+            git add status-querido.json 2>/dev/null || true
+            git add editais-lidos.json 2>/dev/null || true
             if git diff --cached --quiet; then echo "Sem mudanças."; exit 0; fi
             git commit -q -m "Atualiza concursos ($(date -u +%Y-%m-%dT%H:%MZ))"
             git push -q origin HEAD:main && exit 0

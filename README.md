@@ -8,4 +8,6 @@ Lista de concursos usada pelo app **Lumen Plan**.
 - **Atualização:** automática, 2 vezes ao dia, pelo GitHub Actions (`.github/workflows/coletar.yml`).
 - **Arquivo:** `concursos.json`.
 
-Os dados são um resumo automático feito por regras (sem IA). Sempre confira o edital oficial no link de cada item.
+- **Leitura dos editais:** o coletor abre o edital de cada concurso para completar vagas, cargos e data da prova (`coletor/editais.mjs`). Primeiro por regras; se elas não acharem, e houver o segredo opcional `GEMINI_API_KEY` no repositório, a IA gratuita do Google lê o PDF. Cada edital é lido uma vez (`editais-lidos.json`).
+
+Os dados são um resumo automático. Sempre confira o edital oficial no link de cada item.

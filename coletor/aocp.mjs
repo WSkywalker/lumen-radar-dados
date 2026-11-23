@@ -126,6 +126,20 @@ function orgao(nome) {
   return /^[A-Z0-9]{2,12}$/.test(sigla.trim()) ? `${titulo(extenso)} (${sigla.trim()})` : titulo(String(nome));
 }
 
+/**
+ * Secretarias de Administração (SAEB, SEAD, SEPLAG…) organizam concursos de outros órgãos.
+ * A chamada da banca diz qual é: "Concurso Público Nº 02/2026 - Polícia Civil do Estado da Bahia - …".
+ */
+function orgaoReal(nome, chamada) {
+  const geral = orgao(nome);
+  if (!/secretaria d[ae] administra|\bsaeb\b|\bsead\b|\bseplag\b|\bsea\b/.test(norm(nome))) return geral;
+  const m = String(chamada ?? "").match(/concurso p[uú]blico\s*n?[º°o.]*\s*[\d/.-]*\s*[-–]\s*(.{6,90}?)\s+[-–]\s/i);
+  const alvo = m?.[1]?.trim();
+  if (!alvo || /secretaria d[ae] administra/i.test(alvo)) return geral;
+  const sigla = geral.match(/\(([A-Z]{2,10})\)$/)?.[1];
+  return sigla ? `${alvo} (via ${sigla})` : alvo;
+}
+
 const AREAS = [
   ["militar", /bombeiro|exercito|marinha|aeronautica/],
   ["policial", /policia|policial|penal|penitenciar|seguranca publica|guarda (civil )?municipal|perito|detran|defesa social/],
@@ -165,7 +179,8 @@ async function main() {
       const det = (await json(DETALHE + it.id))?.[0] ?? null;
       await sleep(PAUSA_MS);
       const ini = data(det?.dataInicioInscricao ?? it.dataInicioInscricao);
-      const fim = data(det?.dataFinalInscricao ?? it.dataInscricao);
+      let fim = data(det?.dataFinalInscricao ?? it.dataInscricao);
+      if (ini && fim && fim < ini) fim = null; // data errada na banca (ex.: 2020 num concurso de 2026)
       const prova = data(it.dataProva);
       const pubs = Array.isArray(det?.publicacoes) ? det.publicacoes : [];
       const abertura =
@@ -190,7 +205,7 @@ async function main() {
         id,
         fonte_chave: id,
         origem: "robo",
-        orgao: orgao(it.nome),
+        orgao: orgaoReal(it.nome, it.chamada),
         cargo: anterior?.cargo ?? "Diversos cargos",
         area: area(texto),
         abrangencia: mun ? "municipal" : sigla ? "estadual" : "federal",

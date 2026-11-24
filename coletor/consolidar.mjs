@@ -1,6 +1,7 @@
 // Junta as fontes: quando um concurso já tem edital (DOU ou banca), o aviso
 // "banca contratada" do PNCP para o mesmo órgão deixa de aparecer.
 import { readFile, writeFile } from "node:fs/promises";
+import { cargoValido, limpaOrgao } from "./limpeza.mjs";
 
 const ARQUIVO = new URL("../concursos.json", import.meta.url);
 const norm = (t) =>
@@ -20,6 +21,18 @@ const chave = (orgao) =>
     .join(" ");
 
 const base = JSON.parse(await readFile(ARQUIVO, "utf8"));
+
+// nomes do PNCP: acentos, UF no fim e cargo que é só o nome do órgão (vale também para itens antigos)
+let limpos = 0;
+for (const i of base.itens) {
+  if (!i.id.startsWith("pncp:")) continue;
+  const o = limpaOrgao(i.orgao);
+  const c = cargoValido(i.cargo) ? i.cargo : "Cargos a definir (banca contratada)";
+  if (o !== i.orgao || c !== i.cargo) limpos++;
+  i.orgao = o;
+  i.cargo = c;
+}
+if (limpos) console.log(`consolidação: ${limpos} nome(s) do PNCP limpos`);
 const comEdital = base.itens.filter((i) => !i.id.startsWith("pncp:") && i.situacao !== "banca_contratada");
 const mesmo = (p, e) =>
   p.uf && p.uf === e.uf &&

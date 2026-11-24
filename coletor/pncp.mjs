@@ -11,6 +11,7 @@
 //
 // Uso: node coletor/pncp.mjs  (Node 20+, sem dependências). Lê e atualiza concursos.json.
 
+import { cargoValido, limpaOrgao } from "./limpeza.mjs";
 import { readFile, writeFile } from "node:fs/promises";
 
 const ARQUIVO = new URL("../concursos.json", import.meta.url);
@@ -89,7 +90,8 @@ function cargos(objeto) {
     .trim();
   const n = norm(c);
   if (c.length < 4 || /^(e|no|na|nos|nas|de|do|da|para)\b/.test(n) || /cadastro de reserva|quadro de pessoal|conforme|edital|termo de referencia/.test(n)) return generico;
-  return c.charAt(0).toUpperCase() + c.slice(1).toLowerCase();
+  c = c.charAt(0).toUpperCase() + c.slice(1).toLowerCase();
+  return cargoValido(c) ? c : generico;
 }
 
 /** "MUNICIPIO DE BATAGUASSU" -> "Prefeitura de Bataguassu"; preposições em minúsculas. */
@@ -100,7 +102,7 @@ function nomeOrgao(razao, cidade) {
   if (cidade && /^camara (municipal|de vereadores)/.test(n)) return `Câmara Municipal de ${cidade}`;
   t = t.toLowerCase().replace(/(^|[\s(/-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase());
   t = t.replace(/\b(De|Do|Da|Dos|Das|E|Em)\b/g, (w) => w.toLowerCase());
-  return t.replace(/^Municipio de /, "Prefeitura de ").replace(/^Município de /, "Prefeitura de ");
+  return limpaOrgao(t.replace(/^Municipio de /, "Prefeitura de ").replace(/^Município de /, "Prefeitura de "));
 }
 
 const AREAS = [

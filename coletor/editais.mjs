@@ -192,6 +192,8 @@ function provaDoEdital(t) {
 const MODELOS = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"];
 let iaUsadas = 0;
 let iaCotaAcabou = false;
+const cheios = new Set(); // modelos sem cota nesta rodada
+let ultimo429 = "";
 /** "ok" | "invalida" | "sem-chave" | "sem-resposta" */
 let chaveStatus = CHAVE ? "sem-resposta" : "sem-chave";
 
@@ -253,7 +255,7 @@ async function iaEdital(texto, pdfBytes) {
     },
     required: ["cargos"],
   };
-  for (const modelo of MODELOS) {
+  for (const modelo of MODELOS.filter((m) => !cheios.has(m))) {
     for (let tentativa = 1; tentativa <= 2; tentativa++) {
       const ctl = new AbortController();
       const tm = setTimeout(() => ctl.abort(), 90_000);
@@ -271,8 +273,15 @@ async function iaEdital(texto, pdfBytes) {
           },
         );
         if (r.status === 429) {
-          iaCotaAcabou = true; // cota grátis do dia acabou: segue só com regras
-          return null;
+          // limite desse modelo (por minuto ou do dia): cada modelo tem sua cota, tenta o próximo
+          const corpo = await r.text().catch(() => "");
+          ultimo429 = corpo.slice(0, 300).replace(/\s+/g, " ");
+          if (tentativa === 1 && /per.?minute|PerMinute/i.test(corpo)) {
+            await sleep(30_000);
+            continue;
+          }
+          cheios.add(modelo);
+          break;
         }
         if (r.status === 401 || r.status === 403) {
           chaveStatus = "invalida";
@@ -305,6 +314,7 @@ async function iaEdital(texto, pdfBytes) {
       }
     }
   }
+  if (cheios.size >= MODELOS.length) iaCotaAcabou = true;
   return null;
 }
 
@@ -366,7 +376,7 @@ async function main() {
           if (!c) return true;
           // releitura: só se nada foi achado, no máx. 3 tentativas
           const vazio = !c.vagas && !c.cargos?.length;
-          const espera = c.erro ? 1 : 7; // erro de download: tenta de novo no dia seguinte
+          const espera = 1; // nada achado (ou falha/cota da IA): tenta de novo no dia seguinte
           return vazio && (c.tentativas ?? 1) < 3 && Date.now() - new Date(c.em).getTime() > espera * DIA;
         })
         .sort((a, b) => Number(!!a.vagas) - Number(!!b.vagas))
@@ -390,7 +400,8 @@ async function main() {
       if (legivel || pdfParaIa) {
         r = legivel ? { ...regrasEdital(texto), metodo: "regras" } : { cargos: [], vagas: null, prova: null, metodo: "regras" };
         if (!r.cargos.length || !r.vagas) {
-          const ia = await iaEdital(texto, pdfParaIa);
+          let ia = await iaEdital(texto, pdfParaIa);
+          if (!ia && pdfParaIa && legivel && !iaCotaAcabou) ia = await iaEdital(texto, null);
           if (ia && (ia.cargos.length || ia.vagas)) {
             r = {
               cargos: ia.cargos.length ? ia.cargos : r.cargos,
@@ -428,7 +439,12 @@ async function main() {
     "sem-chave": "IA desligada: sem GEMINI_API_KEY",
     "sem-resposta": "Google não respondeu",
   }[chaveStatus];
-  if (!SO_APLICAR) {
+  if (SO_APLICAR) {
+    console.log(`editais: leituras reaplicadas; ${aplicados} concursos atualizados`);
+    return;
+  }
+  {
+    if (iaCotaAcabou && ultimo429) console.log(`Google (limite): ${ultimo429}`);
     console.log(`IA: ${ia}${iaCotaAcabou ? " (cota grátis de hoje acabou)" : ""}`);
     if (process.env.GITHUB_STEP_SUMMARY) {
       const { appendFile } = await import("node:fs/promises");

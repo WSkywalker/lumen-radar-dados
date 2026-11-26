@@ -1,9 +1,113 @@
 {
  "fonte": "Fontes oficiais: Diário Oficial da União (in.gov.br, Seção 3) e PNCP (pncp.gov.br)",
  "aviso": "Resumo automático de publicações oficiais. Confira sempre o edital no link.",
- "gerado_em": "2026-11-25T19:45:38.731Z",
- "total": 367,
+ "gerado_em": "2026-11-26T04:21:14.194Z",
+ "total": 371,
  "itens": [
+  {
+   "id": "sp:08084ecb-f3dd-4a52-5c46-08df2e3de7b6",
+   "fonte_chave": "sp:08084ecb-f3dd-4a52-5c46-08df2e3de7b6",
+   "origem": "robo",
+   "orgao": "Centro Estadual de Educação Tecnológica Paula Souza",
+   "cargo": "Diversos cargos",
+   "area": "outra",
+   "abrangencia": "estadual",
+   "uf": "SP",
+   "cidade": null,
+   "latitude": null,
+   "longitude": null,
+   "situacao": "edital_publicado",
+   "vagas": null,
+   "banca": null,
+   "inscricoes_inicio": "2026-12-01",
+   "inscricoes_fim": "2026-12-10",
+   "prova_data": null,
+   "hierarquia": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+   "edital_url": "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-1302-de-25-de-novembro-de-2026-202611251314172742310713",
+   "fonte_url": "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-1302-de-25-de-novembro-de-2026-202611251314172742310713",
+   "observacoes": "CONCURSO Nº 13.02, DE 25 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 26/11/2026.",
+   "publicado_em": "2026-11-26",
+   "verificado_em": "2026-11-26T04:11:25.501Z",
+   "visto_em": "2026-11-26T04:11:25.501Z"
+  },
+  {
+   "id": "sp:0e87443e-e316-4b12-ef91-08df2e3e9a56",
+   "fonte_chave": "sp:0e87443e-e316-4b12-ef91-08df2e3e9a56",
+   "origem": "robo",
+   "orgao": "Centro Estadual de Educação Tecnológica Paula Souza",
+   "cargo": "Diversos cargos",
+   "area": "outra",
+   "abrangencia": "estadual",
+   "uf": "SP",
+   "cidade": null,
+   "latitude": null,
+   "longitude": null,
+   "situacao": "edital_publicado",
+   "vagas": null,
+   "banca": null,
+   "inscricoes_inicio": null,
+   "inscricoes_fim": null,
+   "prova_data": "2026-12-01",
+   "hierarquia": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+   "edital_url": "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-1301-de-25-de-novembro-de-2026-202611251314172742309059",
+   "fonte_url": "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-1301-de-25-de-novembro-de-2026-202611251314172742309059",
+   "observacoes": "CONCURSO Nº 13.01, DE 25 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 26/11/2026.",
+   "publicado_em": "2026-11-26",
+   "verificado_em": "2026-11-26T04:11:26.855Z",
+   "visto_em": "2026-11-26T04:11:26.855Z"
+  },
+  {
+   "id": "sp:781c0b62-a62b-4c41-8a66-08df2e916917",
+   "fonte_chave": "sp:781c0b62-a62b-4c41-8a66-08df2e916917",
+   "origem": "robo",
+   "orgao": "Escola de Artes, Ciências e Humanidades — USP",
+   "cargo": "PROFESSOR DOUTOR NO CURSO DE SISTEMAS DE INFORMAÇÃO DA ESCOLA DE ARTES",
+   "area": "outra",
+   "abrangencia": "estadual",
+   "uf": "SP",
+   "cidade": null,
+   "latitude": null,
+   "longitude": null,
+   "situacao": "edital_publicado",
+   "vagas": null,
+   "banca": null,
+   "inscricoes_inicio": null,
+   "inscricoes_fim": null,
+   "prova_data": null,
+   "hierarquia": "Executivo > Atos de Gestão e Despesas > Universidade de São Paulo > Unidades Universitárias > Escola de Artes, Ciências e Humanidades",
+   "edital_url": "https://doe.sp.gov.br/executivo/universidade-de-sao-paulo/abertura-concurso-202611251342213672307676",
+   "fonte_url": "https://doe.sp.gov.br/executivo/universidade-de-sao-paulo/abertura-concurso-202611251342213672307676",
+   "observacoes": "ABERTURA - CONCURSO — Diário Oficial do Estado de São Paulo de 26/11/2026.",
+   "publicado_em": "2026-11-26",
+   "verificado_em": "2026-11-26T04:11:30.534Z",
+   "visto_em": "2026-11-26T04:11:30.534Z"
+  },
+  {
+   "id": "sp:df293154-b7ca-42a6-8b98-08df2e916917",
+   "fonte_chave": "sp:df293154-b7ca-42a6-8b98-08df2e916917",
+   "origem": "robo",
+   "orgao": "Instituto de Biociências, Letras e Ciências Exatas — Unesp (São José do Rio Preto)",
+   "cargo": "Diversos cargos",
+   "area": "outra",
+   "abrangencia": "estadual",
+   "uf": "SP",
+   "cidade": null,
+   "latitude": null,
+   "longitude": null,
+   "situacao": "edital_publicado",
+   "vagas": null,
+   "banca": null,
+   "inscricoes_inicio": null,
+   "inscricoes_fim": null,
+   "prova_data": null,
+   "hierarquia": "Executivo > Atos de Gestão e Despesas > Universidade Estadual Paulista > Unidades Universitárias > Campus de São José do Rio Preto > Instituto de Biociências, Letras e Ciências Exatas",
+   "edital_url": "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/comunicado-concurso-n-363-2026-20261125134441911662309479",
+   "fonte_url": "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/comunicado-concurso-n-363-2026-20261125134441911662309479",
+   "observacoes": "COMUNICADO - CONCURSO Nº 363/2026 — Diário Oficial do Estado de São Paulo de 26/11/2026.",
+   "publicado_em": "2026-11-26",
+   "verificado_em": "2026-11-26T04:11:31.580Z",
+   "visto_em": "2026-11-26T04:11:31.580Z"
+  },
   {
    "id": "sp:a9d13b95-a8e5-4bd7-88e9-08df2e916917",
    "fonte_chave": "sp:a9d13b95-a8e5-4bd7-88e9-08df2e916917",
@@ -28,7 +132,7 @@
    "observacoes": "EDITAL Nº 298/2026-STGP – ABERTURA DE INSCRIÇÕES — Diário Oficial do Estado de São Paulo de 25/11/2026.",
    "publicado_em": "2026-11-25",
    "verificado_em": "2026-11-25T04:22:53.128Z",
-   "visto_em": "2026-11-25T19:36:08.663Z",
+   "visto_em": "2026-11-26T04:11:34.750Z",
    "cargos": [
     {
      "nome": "Professor Substituto",
@@ -64,7 +168,7 @@
    "observacoes": "EDITAL Nº 299/2026-STGP – ABERTURA DE INSCRIÇÕES — Diário Oficial do Estado de São Paulo de 25/11/2026.",
    "publicado_em": "2026-11-25",
    "verificado_em": "2026-11-25T04:22:54.474Z",
-   "visto_em": "2026-11-25T19:36:08.663Z",
+   "visto_em": "2026-11-26T04:11:34.750Z",
    "cargos": [
     {
      "nome": "PROFESSOR SUBSTITUTO",
@@ -99,7 +203,7 @@
    "observacoes": "Diário Oficial do Espírito Santo de 25/11/2026, pág. 58.",
    "publicado_em": "2026-11-25",
    "verificado_em": "2026-11-25T04:22:58.848Z",
-   "visto_em": "2026-11-25T19:36:15.568Z"
+   "visto_em": "2026-11-26T04:11:45.070Z"
   },
   {
    "id": "pncp:87612867000186-2-000095/2025",
@@ -125,7 +229,7 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-25. Objeto: CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PLANEJAMENTO, ORGANIZAÇÃO E REALIZAÇÃO DE CONCURSO PÚBLICO, VISANDO AO PROVIMENTO DE VAGAS E FORMAÇÃO DE CADASTRO RESERVA PARA OS CARGOS DE AGENTE EDUCACIONAL V - MONITORA, AGENTE EDUCACIONAL IV – SERVENTE, AGENTE EDUCACIONAL III – MERENDEIRA, DOMÉSTICA E PR",
    "publicado_em": "2026-11-25",
    "verificado_em": "2026-11-25T19:35:04.929Z",
-   "visto_em": "2026-11-25T19:35:04.929Z"
+   "visto_em": "2026-11-26T04:08:20.591Z"
   },
   {
    "id": "go:2026-11-25-prefeitura-de-cavalcante",
@@ -150,7 +254,59 @@
    "observacoes": "Diário Oficial de Goiás de 25/11/2026, pág. 69.",
    "publicado_em": "2026-11-25",
    "verificado_em": "2026-11-25T19:36:41.290Z",
-   "visto_em": "2026-11-25T19:36:41.290Z"
+   "visto_em": "2026-11-26T04:12:09.895Z"
+  },
+  {
+   "id": "pncp:08587396000127-2-000020/2026",
+   "fonte_chave": "pncp:08587396000127-2-000020/2026",
+   "origem": "robo",
+   "orgao": "Pendencias Câmara Municipal",
+   "cargo": "Cargos a definir (banca contratada)",
+   "area": "administrativa",
+   "objeto": "CONTRATAÇÃO DE INSTITUIÇÃO BRASILEIRA SEM FINS LUCRATIVOS, DE INQUESTIONÁVEL REPUTAÇÃO ÉTICA E PROFISSIONAL, PARA PRESTAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE PLANEJAMENTO, ORGANIZAÇÃO, OPERACIONALIZAÇÃO, EXECUÇÃO E ACOMPANHAMENTO DE CONCURSO PÚBLICO DESTINADO AO PROVIMENTO IMEDIATO DE 11 (ONZE) VAGAS, DISTRIBUÍDAS ENTRE 09 (NOVE) CARGOS DE PROVIMENTO EFETIVO DO QUADRO PERMANENTE DA CÂMARA MUNICIPAL DE PENDÊNCIAS/RN",
+   "abrangencia": "municipal",
+   "uf": "RN",
+   "cidade": "Pendências",
+   "latitude": -5.256,
+   "longitude": -36.709,
+   "situacao": "banca_contratada",
+   "vagas": null,
+   "banca": "Fundacao Vale do Piaui",
+   "inscricoes_inicio": null,
+   "inscricoes_fim": null,
+   "prova_data": null,
+   "edital_url": null,
+   "fonte_url": "https://pncp.gov.br/app/contratos/08587396000127/2026/20",
+   "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-25. Objeto: CONTRATAÇÃO DE INSTITUIÇÃO BRASILEIRA SEM FINS LUCRATIVOS, DE INQUESTIONÁVEL REPUTAÇÃO ÉTICA E PROFISSIONAL, PARA PRESTAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE PLANEJAMENTO, ORGANIZAÇÃO, OPERACIONALIZAÇÃO, EXECUÇÃO E ACOMPANHAMENTO DE CONCURSO PÚBLICO DESTINADO AO PROVIMENTO IMEDIATO DE 11 (ONZE)",
+   "publicado_em": "2026-11-25",
+   "verificado_em": "2026-11-26T04:08:40.618Z",
+   "visto_em": "2026-11-26T04:08:40.618Z"
+  },
+  {
+   "id": "pncp:04326257000199-2-000149/2026",
+   "fonte_chave": "pncp:04326257000199-2-000149/2026",
+   "origem": "robo",
+   "orgao": "Fundação Municipal de Saúde de Bituruna",
+   "cargo": "Carreira, em caráter efetivo, atendendo as necessidades da fundação municipal de saúde de bituruna",
+   "area": "administrativa",
+   "objeto": "Contratação de entidade para serviços técnicos especializados de elaboração, organização, planejamento e execução de Concurso Público no Regime Estatutário, para provimento de cargo de carreira, em caráter efetivo, atendendo as necessidades da Fundação Municipal de Saúde de Bituruna.",
+   "abrangencia": "municipal",
+   "uf": "PR",
+   "cidade": "Bituruna",
+   "latitude": -26.161,
+   "longitude": -51.552,
+   "situacao": "banca_contratada",
+   "vagas": null,
+   "banca": "Instituto Filadelfia de Londrina",
+   "inscricoes_inicio": null,
+   "inscricoes_fim": null,
+   "prova_data": null,
+   "edital_url": null,
+   "fonte_url": "https://pncp.gov.br/app/contratos/04326257000199/2026/149",
+   "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-25. Objeto: Contratação de entidade para serviços técnicos especializados de elaboração, organização, planejamento e execução de Concurso Público no Regime Estatutário, para provimento de cargo de carreira, em caráter efetivo, atendendo as necessidades da Fundação Municipal de Saúde de Bituruna.",
+   "publicado_em": "2026-11-25",
+   "verificado_em": "2026-11-26T04:08:59.373Z",
+   "visto_em": "2026-11-26T04:08:59.373Z"
   },
   {
    "id": "sp:7fa4ab56-68d0-477c-5809-08df2e3dc023",
@@ -176,7 +332,7 @@
    "observacoes": "EDITAL Nº 116/2026, DE 23 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 24/11/2026.",
    "publicado_em": "2026-11-24",
    "verificado_em": "2026-11-24T20:18:55.259Z",
-   "visto_em": "2026-11-25T19:36:03.928Z",
+   "visto_em": "2026-11-26T04:11:21.923Z",
    "cargos": [
     {
      "nome": "Analista Jurídico",
@@ -212,7 +368,7 @@
    "observacoes": "CONCURSO Nº 13.01, DE 23 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 24/11/2026.",
    "publicado_em": "2026-11-24",
    "verificado_em": "2026-11-24T20:18:56.341Z",
-   "visto_em": "2026-11-25T19:36:03.928Z",
+   "visto_em": "2026-11-26T04:11:21.923Z",
    "cargos": [
     {
      "nome": "Língua Inglesa",
@@ -255,7 +411,7 @@
    "observacoes": "Diário Oficial de Mato Grosso de 24/11/2026, pág. 57.",
    "publicado_em": "2026-11-24",
    "verificado_em": "2026-11-25T04:23:38.334Z",
-   "visto_em": "2026-11-25T19:36:52.006Z"
+   "visto_em": "2026-11-26T04:12:20.401Z"
   },
   {
    "id": "pncp:87242707000192-2-000143/2026",
@@ -281,7 +437,7 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-24. Objeto: Contratação de instituição especializada para o planejamento, a organização e a execução de concurso público do Município de Bom Retiro do Sul/RS, destinado ao provimento de cargos efetivos e à formação de cadastro de reserva nos cargos em que houver essa previsão, conforme o quadro de cargos e as c",
    "publicado_em": "2026-11-24",
    "verificado_em": "2026-11-25T19:32:18.792Z",
-   "visto_em": "2026-11-25T19:32:18.792Z"
+   "visto_em": "2026-11-26T04:07:07.226Z"
   },
   {
    "id": "pncp:02506012000118-2-000013/2026",
@@ -307,7 +463,7 @@
    "observacoes": "Contrato com a banca publicado no PNCP em 2026-11-24. Objeto: PRESTAÇÃO DE SERVIÇOS ESPECIALIZADOS QUE VISAM O PLANEJAMENTO, A OPERACIONALIZAÇÃO, A ORGANIZAÇÃO E A EXECUÇÃO DE CONCURSO PÚBLICO PARA PROVIMENTO DE VAGAS, DE NÍVEL SUPERIOR, ENSINO MÉDIO, ENSINO FUNDAMENTAL E CADASTRO DE RESERVA DO QUADRO DE SERVIDORES",
    "publicado_em": "2026-11-24",
    "verificado_em": "2026-11-25T19:34:17.272Z",
-   "visto_em": "2026-11-25T19:34:17.272Z"
+   "visto_em": "2026-11-26T04:07:57.802Z"
   },
   {
    "id": "dou:745772029",
@@ -522,7 +678,7 @@
    "observacoes": "CONCURSO Nº 09.01, DE 19 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 23/11/2026.",
    "publicado_em": "2026-11-23",
    "verificado_em": "2026-11-23T18:24:30.199Z",
-   "visto_em": "2026-11-25T19:36:00.095Z",
+   "visto_em": "2026-11-26T04:11:18.181Z",
    "cargos": [
     {
      "nome": "Professor de Ensino Médio e Técnico",
@@ -558,7 +714,7 @@
    "observacoes": "CONCURSO Nº 02.01, DE 19 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 23/11/2026.",
    "publicado_em": "2026-11-23",
    "verificado_em": "2026-11-23T18:24:31.516Z",
-   "visto_em": "2026-11-25T19:36:00.095Z",
+   "visto_em": "2026-11-26T04:11:18.181Z",
    "cargos": [
     {
      "nome": "LÍNGUA INGLESA II",
@@ -650,7 +806,7 @@
    "observacoes": "CONCURSO Nº 08.01, DE 19 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 23/11/2026.",
    "publicado_em": "2026-11-23",
    "verificado_em": "2026-11-23T18:24:35.271Z",
-   "visto_em": "2026-11-25T19:36:02.584Z",
+   "visto_em": "2026-11-26T04:11:20.699Z",
    "cargos": [
     {
      "nome": "Educação Física",
@@ -754,7 +910,7 @@
    "observacoes": "DESPACHO N° 67/2026-STA/IBB DE 18 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 23/11/2026.",
    "publicado_em": "2026-11-23",
    "verificado_em": "2026-11-23T18:24:36.382Z",
-   "visto_em": "2026-11-25T19:36:02.584Z",
+   "visto_em": "2026-11-26T04:11:20.699Z",
    "cargos": [
     {
      "nome": "Professor Substituto",
@@ -790,7 +946,7 @@
    "observacoes": "EDITAL Nº 045/2026, DE 19 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 23/11/2026.",
    "publicado_em": "2026-11-23",
    "verificado_em": "2026-11-23T18:24:41.025Z",
-   "visto_em": "2026-11-25T19:36:07.521Z"
+   "visto_em": "2026-11-26T04:11:33.692Z"
   },
   {
    "id": "sp:d2b72d5f-60a5-4df4-8448-08df2e916917",
@@ -816,7 +972,7 @@
    "observacoes": "EDITAL Nº 052, DE 19 DE NOVEMBRO DE 2026 — Diário Oficial do Estado de São Paulo de 23/11/2026.",
    "publicado_em": "2026-11-23",
    "verificado_em": "2026-11-23T18:24:43.801Z",
-   "visto_em": "2026-11-25T19:36:09.788Z"
+   "visto_em": "2026-11-26T04:11:40.136Z"
   },
   {
    "id": "pncp:46596318000188-2-000030/2026",
@@ -2034,8 +2190,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/proseleta-3",
    "observacoes": "POLÍCIA MILITAR DE SANTA CATARINA - PMSC - Edital 002/CCP/2026 - CFP — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:49.549Z",
-   "visto_em": "2026-11-25T19:35:49.549Z"
+   "verificado_em": "2026-11-26T04:11:04.575Z",
+   "visto_em": "2026-11-26T04:11:04.575Z"
   },
   {
    "id": "aocp:714",
@@ -2059,8 +2215,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/714",
    "observacoes": "Concurso Público nº 001/2026 - Polícia Militar de Pernambuco (PMPE) - Divulgado o Segundo Termo de Retificação do Edital de Abertura do Concurso Público da Polícia Militar de Pernambuco (PMPE) - Publicado no DOE/PE de 19/11/2026. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:21.312Z",
-   "visto_em": "2026-11-25T19:35:21.312Z",
+   "verificado_em": "2026-11-26T04:10:38.322Z",
+   "visto_em": "2026-11-26T04:10:38.322Z",
    "cargos": [
     {
      "nome": "Oficiais Policiais Militares",
@@ -2106,8 +2262,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/715",
    "observacoes": "Concurso Público nº 002/2026 - Corpo de Bombeiros Militar de Pernambuco (CBMPE) - Divulgado o Segundo Termo de Retificação do Edital de Abertura do Concurso Público do Corpo de Bombeiros Militar de Pernambuco (CBMPE) - Publicado no DOE/PE de 19/11/2026. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:19.952Z",
-   "visto_em": "2026-11-25T19:35:19.952Z",
+   "verificado_em": "2026-11-26T04:10:37.077Z",
+   "visto_em": "2026-11-26T04:10:37.077Z",
    "cargos": [
     {
      "nome": "Oficiais Combatente",
@@ -2145,8 +2301,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/701",
    "observacoes": "Concurso Público Nº 03/2026 - Corpo de Bombeiros e Polícia Militar do Estado da Bahia - Concurso suspenso, em breve novas atualizações. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:12.438Z",
-   "visto_em": "2026-11-25T19:35:12.438Z",
+   "verificado_em": "2026-11-26T04:10:30.579Z",
+   "visto_em": "2026-11-26T04:10:30.579Z",
    "cargos": [
     {
      "nome": "Oficial Médico",
@@ -2184,8 +2340,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/720",
    "observacoes": "Concurso Público nº 01/2026 - Divulgação do Edital de Horário e Local de Realização da Prova Objetiva. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:17.251Z",
-   "visto_em": "2026-11-25T19:35:17.251Z",
+   "verificado_em": "2026-11-26T04:10:34.425Z",
+   "visto_em": "2026-11-26T04:10:34.425Z",
    "edital_lido": {
     "em": "2026-11-23T18:27:56.091Z",
     "metodo": "regras"
@@ -2213,8 +2369,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/717",
    "observacoes": "Concurso Público nº 5/2026 - Cargos de Nível Médio, Técnico e Superior - Divulgado o Edital de deferimento das inscrições. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:18.619Z",
-   "visto_em": "2026-11-25T19:35:18.619Z"
+   "verificado_em": "2026-11-26T04:10:35.824Z",
+   "visto_em": "2026-11-26T04:10:35.824Z"
   },
   {
    "id": "aocp:713",
@@ -2238,8 +2394,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/713",
    "observacoes": "Edital de Abertura n° 001/2026. Divulgado o edital de deferimento das inscrições. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:22.665Z",
-   "visto_em": "2026-11-25T19:35:22.665Z"
+   "verificado_em": "2026-11-26T04:10:39.561Z",
+   "visto_em": "2026-11-26T04:10:39.561Z"
   },
   {
    "id": "aocp:712",
@@ -2263,8 +2419,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/712",
    "observacoes": "Concurso Público Nº 002/2026 - Cargos de Nível Técnico - Divulgados o Gabarito Preliminar e o Caderno de Questões da Prova Objetiva. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:23.986Z",
-   "visto_em": "2026-11-25T19:35:23.986Z"
+   "verificado_em": "2026-11-26T04:10:40.806Z",
+   "visto_em": "2026-11-26T04:10:40.806Z"
   },
   {
    "id": "aocp:711",
@@ -2288,8 +2444,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/711",
    "observacoes": "Concurso Público Nº 003/2026 - Cargos de Nível Superior - Divulgados o Gabarito Preliminar e o Caderno de Questões da Prova Objetiva. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:25.365Z",
-   "visto_em": "2026-11-25T19:35:25.365Z"
+   "verificado_em": "2026-11-26T04:10:42.042Z",
+   "visto_em": "2026-11-26T04:10:42.042Z"
   },
   {
    "id": "aocp:709",
@@ -2313,8 +2469,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/709",
    "observacoes": "Concurso Público Nº 001/2026 - Cargos de Nível Médio - Divulgados o Gabarito Preliminar e o Caderno de Questões da Prova Objetiva. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:26.709Z",
-   "visto_em": "2026-11-25T19:35:26.709Z"
+   "verificado_em": "2026-11-26T04:10:43.308Z",
+   "visto_em": "2026-11-26T04:10:43.308Z"
   },
   {
    "id": "aocp:706",
@@ -2338,8 +2494,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/706",
    "observacoes": "Concurso Público Nº 02/2026 - Polícia Civil do Estado da Bahia - Divulgado o Edital do deferimento das inscrições. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:28.068Z",
-   "visto_em": "2026-11-25T19:35:28.068Z"
+   "verificado_em": "2026-11-26T04:10:44.545Z",
+   "visto_em": "2026-11-26T04:10:44.545Z"
   },
   {
    "id": "aocp:690",
@@ -2363,8 +2519,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/690",
    "observacoes": "Edital de Abertura n° 001/2026. Divulgado o Edital de Resultado da Prova Prática - Pós-Recursos. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:29.426Z",
-   "visto_em": "2026-11-25T19:35:29.426Z",
+   "verificado_em": "2026-11-26T04:10:45.813Z",
+   "visto_em": "2026-11-26T04:10:45.813Z",
    "cargos": [
     {
      "nome": "AGENTE DE SANEAMENTO - ASSISTENTE ADMINISTRATIVO",
@@ -2434,8 +2590,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/672",
    "observacoes": "Concurso Público Nº 01/2025. Curso de Formação Técnico-Profissional em andamento. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:30.875Z",
-   "visto_em": "2026-11-25T19:35:30.875Z",
+   "verificado_em": "2026-11-26T04:10:47.054Z",
+   "visto_em": "2026-11-26T04:10:47.054Z",
    "cargos": [
     {
      "nome": "Policial Penal",
@@ -2469,8 +2625,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/669",
    "observacoes": "Edital de Abertura nº 2/2025. Divulgado o Edital de Convocação para a Avaliação Psicológica. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:32.212Z",
-   "visto_em": "2026-11-25T19:35:32.212Z",
+   "verificado_em": "2026-11-26T04:10:48.305Z",
+   "visto_em": "2026-11-26T04:10:48.305Z",
    "cargos": [
     {
      "nome": "GUARDA MUNICIPAL",
@@ -2487,7 +2643,7 @@
    "fonte_chave": "aocp:664",
    "origem": "robo",
    "orgao": "Secretaria da Administração Penitenciária (SAP)",
-   "cargo": "Diversos cargos",
+   "cargo": "Policial Penal",
    "area": "policial",
    "abrangencia": "estadual",
    "uf": "SP",
@@ -2495,7 +2651,7 @@
    "latitude": null,
    "longitude": null,
    "situacao": "andamento",
-   "vagas": null,
+   "vagas": 1100,
    "banca": "Instituto AOCP",
    "inscricoes_inicio": "2026-02-19",
    "inscricoes_fim": "2026-04-10",
@@ -2504,15 +2660,25 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/664",
    "observacoes": "Concurso Público nº 004/2025 – Breve, divulgação do Procedimento de Heteroidenticação dos Candidatos Pretos e Pardos. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:33.544Z",
-   "visto_em": "2026-11-25T19:35:33.544Z"
+   "verificado_em": "2026-11-26T04:10:49.545Z",
+   "visto_em": "2026-11-26T04:10:49.545Z",
+   "cargos": [
+    {
+     "nome": "Policial Penal",
+     "vagas": 1100
+    }
+   ],
+   "edital_lido": {
+    "em": "2026-11-26T04:22:51.398Z",
+    "metodo": "ia"
+   }
   },
   {
    "id": "aocp:635",
    "fonte_chave": "aocp:635",
    "origem": "robo",
    "orgao": "Instituto Rio Grandense do Arroz (IRGA)",
-   "cargo": "Diversos cargos",
+   "cargo": "Especialista em Orizicultura, Analista Administrativo",
    "area": "administrativa",
    "abrangencia": "federal",
    "uf": null,
@@ -2529,8 +2695,22 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/635",
    "observacoes": "Edital de Abertura nº 001/2025 – Divulgado o Edital de Convocação para o procedimento de Heteroidentificação - Candidatos Negros e Indígenas. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:34.883Z",
-   "visto_em": "2026-11-25T19:35:34.883Z"
+   "verificado_em": "2026-11-26T04:10:50.782Z",
+   "visto_em": "2026-11-26T04:10:50.782Z",
+   "cargos": [
+    {
+     "nome": "Especialista em Orizicultura",
+     "vagas": null
+    },
+    {
+     "nome": "Analista Administrativo",
+     "vagas": null
+    }
+   ],
+   "edital_lido": {
+    "em": "2026-11-26T04:22:53.505Z",
+    "metodo": "ia"
+   }
   },
   {
    "id": "aocp:632",
@@ -2554,8 +2734,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/632",
    "observacoes": "Edital de Abertura TJPA nº 01/2025 - Divulgado o Gabarito pós-recursos e o Edital de resultado da Prova Objetiva. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:36.205Z",
-   "visto_em": "2026-11-25T19:35:36.205Z"
+   "verificado_em": "2026-11-26T04:10:52.036Z",
+   "visto_em": "2026-11-26T04:10:52.036Z"
   },
   {
    "id": "aocp:628",
@@ -2579,8 +2759,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/628",
    "observacoes": "Edital de Abertura nº 001/2025 - Publicados o Gabarito Preliminar e o Caderno de Questões da Prova Objetiva - Recurso contra o Gabarito Preliminar: das 0h00 de 14/10/2026 às 23h59 de 20/10/2026. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:37.534Z",
-   "visto_em": "2026-11-25T19:35:37.534Z"
+   "verificado_em": "2026-11-26T04:10:53.273Z",
+   "visto_em": "2026-11-26T04:10:53.273Z"
   },
   {
    "id": "aocp:620",
@@ -2604,8 +2784,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/620",
    "observacoes": "Edital de Abertura nº01/2024 – Divulgado o Edital de Homologação do Resultado Final e Classificação. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:38.886Z",
-   "visto_em": "2026-11-25T19:35:38.886Z"
+   "verificado_em": "2026-11-26T04:10:54.525Z",
+   "visto_em": "2026-11-26T04:10:54.525Z"
   },
   {
    "id": "aocp:604",
@@ -2629,8 +2809,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/604",
    "observacoes": "Edital de Abertura nº 001/2024 - Divulgado o Resultado e Classificação. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:40.216Z",
-   "visto_em": "2026-11-25T19:35:40.216Z",
+   "verificado_em": "2026-11-26T04:10:55.789Z",
+   "visto_em": "2026-11-26T04:10:55.789Z",
    "cargos": [
     {
      "nome": "Policial Penal",
@@ -2664,8 +2844,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/425",
    "observacoes": "Edital de Abertura n°004/2022 - Cargo de Soldado Combatente - Divulgado o Edital de Homologação do Resultado Final do Concurso. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:41.538Z",
-   "visto_em": "2026-11-25T19:35:41.538Z"
+   "verificado_em": "2026-11-26T04:10:57.065Z",
+   "visto_em": "2026-11-26T04:10:57.065Z"
   },
   {
    "id": "aocp:418",
@@ -2689,8 +2869,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/418",
    "observacoes": "Edital de Abertura n°004/2022 - Cargo de Cadete - Divulgado o Edital de Homologação do Resultado Final do Concurso. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:42.877Z",
-   "visto_em": "2026-11-25T19:35:42.877Z"
+   "verificado_em": "2026-11-26T04:10:58.318Z",
+   "visto_em": "2026-11-26T04:10:58.318Z"
   },
   {
    "id": "aocp:400",
@@ -2714,8 +2894,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/400",
    "observacoes": "Edital de Abertura 003/2022 - Cargo: Cadete e 2º Tenente QOS - Divulgado o Edital de Resultado e Classificação dos Candidatos. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:44.210Z",
-   "visto_em": "2026-11-25T19:35:44.210Z"
+   "verificado_em": "2026-11-26T04:10:59.581Z",
+   "visto_em": "2026-11-26T04:10:59.581Z"
   },
   {
    "id": "aocp:396",
@@ -2739,8 +2919,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/396",
    "observacoes": "Edital de Abertura 002/2022 - Cargo: Soldado 2º Classe Combatente e Músico - Divulgado o Resultado Final e Classificação. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:45.561Z",
-   "visto_em": "2026-11-25T19:35:45.561Z"
+   "verificado_em": "2026-11-26T04:11:00.838Z",
+   "visto_em": "2026-11-26T04:11:00.838Z"
   },
   {
    "id": "aocp:259",
@@ -2764,8 +2944,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/259",
    "observacoes": "Edital de Abertura nº 001/2020. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:46.905Z",
-   "visto_em": "2026-11-25T19:35:46.905Z"
+   "verificado_em": "2026-11-26T04:11:02.079Z",
+   "visto_em": "2026-11-26T04:11:02.079Z"
   },
   {
    "id": "aocp:26",
@@ -2789,8 +2969,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/26",
    "observacoes": "Edital de Abertura nº 198/2013 - Divulgado o Edital Nº 100/2022 - CONVOCAÇÃO PARA AVALIAÇÃO PSICOLÓGICA SUB JUDICE. — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:48.233Z",
-   "visto_em": "2026-11-25T19:35:48.233Z"
+   "verificado_em": "2026-11-26T04:11:03.347Z",
+   "visto_em": "2026-11-26T04:11:03.347Z"
   },
   {
    "id": "sp:6c318941-6e32-49e5-df65-08df2e3e9a56",
@@ -2908,7 +3088,7 @@
    "cidade": null,
    "latitude": null,
    "longitude": null,
-   "situacao": "edital_publicado",
+   "situacao": "encerrado",
    "vagas": null,
    "banca": null,
    "inscricoes_inicio": null,
@@ -3022,8 +3202,8 @@
    "fonte_url": "https://www.institutoaocp.org.br/concursos/724",
    "observacoes": "Concurso Público IFG TAE – Divulgado o Edital de Abertura. INSCRIÇÕES ABERTAS. das 09h00 do dia 24/11/2026 às 23h59 do dia 23/12/2026). — fonte: site do Instituto AOCP.",
    "publicado_em": "2026-11-16",
-   "verificado_em": "2026-11-25T19:35:13.795Z",
-   "visto_em": "2026-11-25T19:35:13.795Z",
+   "verificado_em": "2026-11-26T04:10:31.843Z",
+   "visto_em": "2026-11-26T04:10:31.843Z",
    "edital_lido": {
     "em": "2026-11-23T21:34:44.830Z",
     "metodo": "regras"
@@ -6511,7 +6691,7 @@
    "cidade": null,
    "latitude": null,
    "longitude": null,
-   "situacao": "andamento",
+   "situacao": "encerrado",
    "vagas": 1,
    "banca": null,
    "inscricoes_inicio": "2026-11-05",
@@ -10161,58 +10341,6 @@
    "publicado_em": "2026-06-01",
    "verificado_em": "2026-11-16T03:26:57.252Z",
    "visto_em": "2026-11-16T03:26:57.252Z"
-  },
-  {
-   "id": "pncp:23788493000171-2-000005/2026",
-   "fonte_chave": "pncp:23788493000171-2-000005/2026",
-   "origem": "robo",
-   "orgao": "Fundo Municipal de Educação - Fme",
-   "cargo": "Professor – licenciatura plena e nutricionista",
-   "area": "administrativa",
-   "objeto": "Contratação de empresa especializada na prestação de serviços técnicos de naturezapredominantemente intelectual, com reconhecida experiência na organização, planejamento, execução e gerenciamento de concursos públicos, visando àrealização de concurso público para provimento de cargos efetivos de Professor – Licenciatura Plena e Nutricionista, bem como formação de cadastro dereserva, no âmbito da Secretaria Municipal de Educação do Município de Cavalcante – GO.",
-   "abrangencia": "municipal",
-   "uf": "GO",
-   "cidade": "Cavalcante",
-   "latitude": -13.798,
-   "longitude": -47.457,
-   "situacao": "banca_contratada",
-   "vagas": null,
-   "banca": "Imperio Assessoria e Concursos LTDA",
-   "inscricoes_inicio": null,
-   "inscricoes_fim": null,
-   "prova_data": null,
-   "edital_url": null,
-   "fonte_url": "https://pncp.gov.br/app/contratos/23788493000171/2026/5",
-   "observacoes": "Contrato com a banca publicado no PNCP em 2026-05-29. Objeto: Contratação de empresa especializada na prestação de serviços técnicos de naturezapredominantemente intelectual, com reconhecida experiência na organização, planejamento, execução e gerenciamento de concursos públicos, visando àrealização de concurso público para provimento de cargos efetivos de Pro",
-   "publicado_em": "2026-05-29",
-   "verificado_em": "2026-11-16T03:21:55.754Z",
-   "visto_em": "2026-11-16T03:21:55.754Z"
-  },
-  {
-   "id": "pncp:12081691000184-2-000005/2026",
-   "fonte_chave": "pncp:12081691000184-2-000005/2026",
-   "origem": "robo",
-   "orgao": "Prefeitura de Carolina",
-   "cargo": "Cargos a definir (banca contratada)",
-   "area": "administrativa",
-   "objeto": "CONTRATAÇÃO DE INSTITUIÇÃO ESPECIALIZADA PARA A PRESTAÇÃO DE SERVIÇOS TÉCNICOS DE PLANEJAMENTO, ORGANIZAÇÃO E EXECUÇÃO INTEGRAL DE CONCURSO PÚBLICO PARA O PROVIMENTO DE 234(DUZENTOS E TRINTA E QUATRO) VAGAS DE PROVIMENTO EFETIVO IMEDIATA, BEM COMO A FORMAÇÃO DE CADASTRO RESERVA, TOTALIZANDO 381(TREZENTOS E OITENTA E UMA) VAGAS.",
-   "abrangencia": "municipal",
-   "uf": "MA",
-   "cidade": "Carolina",
-   "latitude": -7.336,
-   "longitude": -47.463,
-   "situacao": "banca_contratada",
-   "vagas": null,
-   "banca": "Instituto de Capacitação, Assessoria e Pesquisa LTDA",
-   "inscricoes_inicio": null,
-   "inscricoes_fim": null,
-   "prova_data": null,
-   "edital_url": null,
-   "fonte_url": "https://pncp.gov.br/app/contratos/12081691000184/2026/5",
-   "observacoes": "Contrato com a banca publicado no PNCP em 2026-05-29. Objeto: CONTRATAÇÃO DE INSTITUIÇÃO ESPECIALIZADA PARA A PRESTAÇÃO DE SERVIÇOS TÉCNICOS DE PLANEJAMENTO, ORGANIZAÇÃO E EXECUÇÃO INTEGRAL DE CONCURSO PÚBLICO PARA O PROVIMENTO DE 234(DUZENTOS E TRINTA E QUATRO) VAGAS DE PROVIMENTO EFETIVO IMEDIATA, BEM COMO A FORMAÇÃO DE CADASTRO RESERVA, TOTALIZANDO 381(TREZ",
-   "publicado_em": "2026-05-29",
-   "verificado_em": "2026-11-16T03:23:30.791Z",
-   "visto_em": "2026-11-16T03:23:30.791Z"
   }
  ]
 }

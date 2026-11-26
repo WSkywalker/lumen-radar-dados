@@ -696,8 +696,8 @@
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:21:15.639Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:21:15.831Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/dd8cc889-2d00-4550-8c2b-20f9035a53ac.pdf": {
   "cargos": [
@@ -775,124 +775,138 @@
   "tentativas": 1
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/faabd2c4-cc73-4eee-9b55-55822fa04cc9.pdf": {
-  "cargos": [],
-  "vagas": null,
+  "cargos": [
+   {
+    "nome": "Policial Penal",
+    "vagas": 1100
+   }
+  ],
+  "vagas": 1100,
   "prova": "2026-02-08",
-  "metodo": "regras",
-  "em": "2026-11-24T20:25:10.713Z",
-  "tentativas": 1
+  "metodo": "ia",
+  "em": "2026-11-26T04:22:51.398Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/f907e684-4bdc-48e4-a072-22254d48cd00.pdf": {
-  "cargos": [],
+  "cargos": [
+   {
+    "nome": "Especialista em Orizicultura",
+    "vagas": null
+   },
+   {
+    "nome": "Analista Administrativo",
+    "vagas": null
+   }
+  ],
   "vagas": null,
   "prova": null,
-  "metodo": "regras",
-  "em": "2026-11-24T20:25:11.599Z",
-  "tentativas": 1
+  "metodo": "ia",
+  "em": "2026-11-26T04:22:53.505Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/5cebfed6-decf-4988-ad2e-df0c2b91bda1.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:12.500Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:05.450Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/bd8d878b-cd61-4f0f-93ee-0c9569d025ff.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:13.387Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:06.741Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/502f2e31-85b7-474c-acbb-a0f22636ed34.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:14.259Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:07.712Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/d6c1e873-5da3-4ce9-ab22-8830099880e2.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:15.120Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:08.683Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/69fd8b9e-4671-4540-aa03-ace5c9d8c228.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:16.107Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:09.844Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/anexo-deferimento-inscricoes-pmgo-edital-3.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:17.446Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:11.568Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/reintegracao.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:18.336Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:12.633Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/ed_abertura001-2020_serra.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": "2020-04-05",
   "metodo": "regras",
-  "em": "2026-11-24T20:25:19.372Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:13.834Z",
+  "tentativas": 2
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/mpba_anexoIIeditalabertura_retificado.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:20.335Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:14.934Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0301-de-13-de-novembro-de-2026-202611131314172742282983": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:24.155Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:16.962Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0302-de-13-de-novembro-de-2026-202611131314172742283101": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:25.625Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:17.926Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-de-campinas/edital-n-04-p-39375-2026-de-13-de-novembro-de-2026-20261113134322762280351": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:26.765Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:19.020Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0901-de-13-de-novembro-de-2026-202611131314172742281447": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:27.746Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:19.972Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0801-de-13-de-novembro-de-2026-202611131314172742281859": {
   "cargos": [],
@@ -907,80 +921,80 @@
   "vagas": null,
   "prova": "2027-02-14",
   "metodo": "regras",
-  "em": "2026-11-24T20:25:30.688Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:21.517Z",
+  "tentativas": 2
  },
  "https://www.in.gov.br/web/dou/-/edital-n-52/2026/ccv/ufc-de-11-de-novembro-de-2026-744382024": {
   "cargos": [],
   "vagas": null,
   "prova": "2027-01-06",
   "metodo": "regras",
-  "em": "2026-11-24T20:25:33.221Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:27.860Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-494-2026-de-10-de-novembro-de-2026-202611121344416162278652": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:34.788Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:29.188Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0301-de-12-de-novembro-de-2026-202611121314172742279078": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:35.769Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:30.139Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-497-2026-de-12-de-novembro-de-2026-202611121344416162278677": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:36.900Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:31.218Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0801-de-12-de-novembro-de-2026-202611121314172742279075": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:38.615Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:32.766Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0302-de-12-de-novembro-de-2026-202611121314172742279175": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:40.485Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:34.523Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0901-de-12-de-novembro-de-2026-202611121314172742278942": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:41.467Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:35.478Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-498-2026-de-11-de-novembro-de-2026-202611111344416162275225": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:42.616Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:36.563Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0901-de-11-de-novembro-de-2026-202611111314172742274352": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-24T20:25:43.654Z",
-  "tentativas": 1
+  "em": "2026-11-26T04:23:37.531Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/ministerio-publico/edital-n-116-2026-de-23-de-novembro-de-2026-202611231340662302965": {
   "cargos": [
@@ -1362,6 +1376,38 @@
   "prova": null,
   "metodo": "regras",
   "em": "2026-11-25T19:51:38.272Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-487-2026-de-5-de-novembro-de-2026-202611051344416162259346": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T04:23:38.687Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-da-seguranca-publica/edital-de-concurso-publico-n-dp-4-321-26-202611041336161962254080": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T04:23:39.910Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0301-de-4-de-novembro-de-2026-202611041314172742256651": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T04:23:41.725Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0902-de-4-de-novembro-de-2026-202611041314172742255242": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T04:23:43.432Z",
   "tentativas": 1
  }
 }

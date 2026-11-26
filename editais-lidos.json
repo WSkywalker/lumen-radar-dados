@@ -555,8 +555,8 @@
  },
  "https://www.iomat.mt.gov.br/portal/visualizacoes/pdf/19439/#e:19439/#p:78": {
   "erro": "sem texto (PDF escaneado?)",
-  "em": "2026-11-25T04:40:40.516Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:47:18.309Z",
+  "tentativas": 3
  },
  "https://www.in.gov.br/web/dou/-/edital-n-2/progep/ufmt-de-17-de-novembro-de-2026-745174061": {
   "cargos": [
@@ -572,124 +572,200 @@
   "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0801-de-17-de-novembro-de-2026-202611171314172742290258": {
-  "cargos": [],
+  "cargos": [
+   {
+    "nome": "História",
+    "vagas": null
+   },
+   {
+    "nome": "Administração de Recursos Humanos",
+    "vagas": null
+   },
+   {
+    "nome": "Educação Física",
+    "vagas": null
+   },
+   {
+    "nome": "Química",
+    "vagas": null
+   },
+   {
+    "nome": "Geração de Energia e Análise de Circuitos Elétricos",
+    "vagas": null
+   },
+   {
+    "nome": "Matemática",
+    "vagas": null
+   },
+   {
+    "nome": "Biologia",
+    "vagas": null
+   },
+   {
+    "nome": "Qualidade e Teste de Software",
+    "vagas": null
+   },
+   {
+    "nome": "Assistência Oncológica",
+    "vagas": null
+   },
+   {
+    "nome": "Geografia",
+    "vagas": null
+   },
+   {
+    "nome": "Computação em Nuvem I",
+    "vagas": null
+   },
+   {
+    "nome": "Fisiologia Humana",
+    "vagas": null
+   },
+   {
+    "nome": "Física",
+    "vagas": null
+   },
+   {
+    "nome": "Administração Financeira e Orçamentária",
+    "vagas": null
+   },
+   {
+    "nome": "Língua Inglesa",
+    "vagas": null
+   }
+  ],
   "vagas": null,
   "prova": "2026-11-26",
-  "metodo": "regras",
-  "em": "2026-11-25T04:40:49.598Z",
-  "tentativas": 2
+  "metodo": "ia",
+  "em": "2026-11-26T19:47:46.348Z",
+  "tentativas": 3
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0901-de-17-de-novembro-de-2026-202611171314172742290065": {
-  "cargos": [],
-  "vagas": null,
+  "cargos": [
+   {
+    "nome": "Geografia",
+    "vagas": 1
+   }
+  ],
+  "vagas": 1,
   "prova": null,
-  "metodo": "regras",
-  "em": "2026-11-25T04:40:50.617Z",
-  "tentativas": 2
+  "metodo": "ia",
+  "em": "2026-11-26T19:50:54.727Z",
+  "tentativas": 3
  },
  "https://www.in.gov.br/web/dou/-/edital-n-31/2026-744952004": {
-  "cargos": [],
+  "cargos": [
+   {
+    "nome": "Técnico Judiciário - Área Administrativa",
+    "vagas": null
+   }
+  ],
   "vagas": null,
   "prova": null,
-  "metodo": "regras",
-  "em": "2026-11-25T04:40:56.437Z",
-  "tentativas": 2
+  "metodo": "ia",
+  "em": "2026-11-26T19:52:45.196Z",
+  "tentativas": 3
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/despacho-n-24-2026-do-diretor-tecnico-administrativo-de-16-11-2026-20261116134441911662285187": {
-  "cargos": [],
-  "vagas": null,
+  "cargos": [
+   {
+    "nome": "Professor Substituto",
+    "vagas": 1
+   }
+  ],
+  "vagas": 1,
   "prova": null,
-  "metodo": "regras",
-  "em": "2026-11-25T04:40:58.034Z",
-  "tentativas": 2
+  "metodo": "ia",
+  "em": "2026-11-26T19:54:28.652Z",
+  "tentativas": 3
  },
  "https://doe.sp.gov.br/executivo/secretaria-da-fazenda-e-planejamento/edital-n-n-05-2026-de-16-de-novembro-de-2026-2026111613262162287135": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:00.876Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:32.776Z",
+  "tentativas": 3
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0801-de-16-de-novembro-de-2026-202611161314172742286969": {
   "cargos": [],
   "vagas": null,
   "prova": "2026-12-02",
   "metodo": "regras",
-  "em": "2026-11-25T04:41:02.901Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:33.859Z",
+  "tentativas": 3
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0301-de-16-de-novembro-de-2026-202611161314172742287118": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:03.941Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:34.926Z",
+  "tentativas": 3
  },
  "https://doe.sp.gov.br/executivo/universidade-de-sao-paulo/abertura-concurso-edital-fmvz-n-30-2026-2026111613422253672283709": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:04.970Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:35.981Z",
+  "tentativas": 3
  },
  "https://www.institutoaocp.org.br/concursos/proseleta-3": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:06.283Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:37.173Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/51d24a11-8294-451c-a5bf-71700825d86f.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": "2026-12-13",
   "metodo": "regras",
-  "em": "2026-11-25T04:41:08.746Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:39.891Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/a225ec70-1b52-4471-95e7-9d3fb5d03592.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:10.292Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:41.307Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/415023ed-d21f-410a-978c-49ae1708992f.pdf": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:11.714Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:42.665Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/e7cdba77-5d90-4345-be36-adb3fdb86bad.html": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:13.706Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:44.316Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/b02448bf-346a-4a49-ae77-c14e5b56fb97.html": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:15.658Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:46.047Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/574f7939-50f6-42fa-9740-aa15e1bccbd0.html": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:17.262Z",
-  "tentativas": 2
+  "em": "2026-11-26T19:54:47.646Z",
+  "tentativas": 3
  },
  "https://arquivos-site.institutoaocp.org.br/publicacoes/bde70a30-cb98-476d-bb86-135abe2b7f37.pdf": {
   "cargos": [],
@@ -1035,45 +1111,45 @@
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:19.078Z",
-  "tentativas": 1
+  "em": "2026-11-26T19:54:49.294Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-500-2026-de-11-de-novembro-de-2026-202611111344416162275212": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:20.314Z",
-  "tentativas": 1
+  "em": "2026-11-26T19:54:50.538Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0301-de-11-de-novembro-de-2026-202611111314172742275924": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:21.541Z",
-  "tentativas": 1
+  "em": "2026-11-26T19:54:51.790Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0801-de-11-de-novembro-de-2026-202611111314172742275436": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:23.190Z",
-  "tentativas": 1
+  "em": "2026-11-26T19:54:53.510Z",
+  "tentativas": 2
  },
  "https://www.iomat.mt.gov.br/portal/visualizacoes/pdf/19424/#e:19424/#p:178": {
   "erro": "sem texto (PDF escaneado?)",
-  "em": "2026-11-25T04:41:25.488Z",
-  "tentativas": 1
+  "em": "2026-11-26T19:54:55.381Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0302-de-10-de-novembro-de-2026-202611101314172742271975": {
   "cargos": [],
   "vagas": null,
   "prova": null,
   "metodo": "regras",
-  "em": "2026-11-25T04:41:27.743Z",
-  "tentativas": 1
+  "em": "2026-11-26T19:54:57.902Z",
+  "tentativas": 2
  },
  "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-298-2026-stgp-abertura-de-inscricoes-20261124134441112742305177": {
   "cargos": [
@@ -1408,6 +1484,178 @@
   "prova": null,
   "metodo": "regras",
   "em": "2026-11-26T04:23:43.432Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-1302-de-25-de-novembro-de-2026-202611251314172742310713": {
+  "cargos": [
+   {
+    "nome": "Biologia",
+    "vagas": null
+   },
+   {
+    "nome": "Programação de Aplicativos Mobile II",
+    "vagas": null
+   },
+   {
+    "nome": "Química",
+    "vagas": null
+   },
+   {
+    "nome": "Técnicas Avançadas de Programação",
+    "vagas": null
+   },
+   {
+    "nome": "Gestão de Obras II (Pessoal)",
+    "vagas": null
+   },
+   {
+    "nome": "Estruturas de Concreto",
+    "vagas": null
+   },
+   {
+    "nome": "Estruturas II",
+    "vagas": null
+   },
+   {
+    "nome": "Geografia",
+    "vagas": null
+   },
+   {
+    "nome": "Arte(s)",
+    "vagas": null
+   },
+   {
+    "nome": "Planejamento do TCC em Enfermagem",
+    "vagas": null
+   },
+   {
+    "nome": "Ecossistemas Aquáticos",
+    "vagas": null
+   },
+   {
+    "nome": "Criação e Representação da Identidade Visual",
+    "vagas": null
+   },
+   {
+    "nome": "Física",
+    "vagas": null
+   },
+   {
+    "nome": "Eletricidade Básica",
+    "vagas": null
+   },
+   {
+    "nome": "Projeto de Pesquisa na Gestão Empresarial",
+    "vagas": null
+   }
+  ],
+  "vagas": null,
+  "prova": null,
+  "metodo": "ia",
+  "em": "2026-11-26T19:39:38.616Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-1301-de-25-de-novembro-de-2026-202611251314172742309059": {
+  "cargos": [
+   {
+    "nome": "Geografia",
+    "vagas": null
+   },
+   {
+    "nome": "Sistemas Embarcados e IoT",
+    "vagas": null
+   },
+   {
+    "nome": "Matemática",
+    "vagas": null
+   },
+   {
+    "nome": "Biologia",
+    "vagas": null
+   },
+   {
+    "nome": "Física",
+    "vagas": null
+   },
+   {
+    "nome": "Sociologia",
+    "vagas": null
+   },
+   {
+    "nome": "Programação de Aplicativos Mobile I",
+    "vagas": null
+   },
+   {
+    "nome": "Projetos de Tecnologia de Informação e Comunicação",
+    "vagas": null
+   },
+   {
+    "nome": "Estudos de Economia, Mercado e (de) Comércio Internacional",
+    "vagas": null
+   }
+  ],
+  "vagas": null,
+  "prova": "2026-12-01",
+  "metodo": "ia",
+  "em": "2026-11-26T19:41:23.145Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/universidade-de-sao-paulo/abertura-concurso-202611251342213672307676": {
+  "cargos": [
+   {
+    "nome": "Professor Doutor",
+    "vagas": 1
+   }
+  ],
+  "vagas": 1,
+  "prova": null,
+  "metodo": "ia",
+  "em": "2026-11-26T19:44:31.713Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/comunicado-concurso-n-363-2026-20261125134441911662309479": {
+  "cargos": [
+   {
+    "nome": "PROFESSOR SUBSTITUTO",
+    "vagas": 1
+   }
+  ],
+  "vagas": 1,
+  "prova": null,
+  "metodo": "ia",
+  "em": "2026-11-26T19:47:16.437Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0302-de-4-de-novembro-de-2026-202611041314172742256663": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T19:54:59.453Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-da-saude/concurso-n-27-2026-de-4-de-novembro-de-2026-202611041335222742253705": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T19:55:00.488Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/universidade-estadual-paulista/edital-n-269-2026-stgp-abertura-de-inscricoes-20261104134441112742254821": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T19:55:03.443Z",
+  "tentativas": 1
+ },
+ "https://doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/concurso-n-0901-de-3-de-novembro-de-2026-202611031314172742251035": {
+  "cargos": [],
+  "vagas": null,
+  "prova": null,
+  "metodo": "regras",
+  "em": "2026-11-26T19:55:04.481Z",
   "tentativas": 1
  }
 }

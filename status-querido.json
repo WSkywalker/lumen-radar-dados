@@ -1,23 +1,23 @@
 [
  {
-  "testado_em": "2026-11-27T19:32:40.833Z",
+  "testado_em": "2026-11-28T03:20:45.274Z",
   "url": "https://api.queridodiario.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "status": 503,
   "corpo": "no available server\n"
  },
  {
-  "testado_em": "2026-11-27T19:32:41.446Z",
+  "testado_em": "2026-11-28T03:20:46.118Z",
   "url": "https://queridodiario.org.br/api/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "status": 503,
   "corpo": "no available server\n"
  },
  {
-  "testado_em": "2026-11-27T19:32:42.123Z",
+  "testado_em": "2026-11-28T03:20:47.093Z",
   "url": "https://api.queridodiario.ok.org.br/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "erro": "ERR_SSL_SSLV3_ALERT_HANDSHAKE_FAILURE"
  },
  {
-  "testado_em": "2026-11-27T19:32:42.268Z",
+  "testado_em": "2026-11-28T03:20:47.268Z",
   "url": "https://queridodiario.ok.org.br/api/gazettes?querystring=%22concurso%20p%C3%BAblico%22&published_since=2026-11-01&size=3&excerpt_size=300&number_of_excerpts=1",
   "status": 503,
   "corpo": "no available server\n"
